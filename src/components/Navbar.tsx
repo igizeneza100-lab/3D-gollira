@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, Mail, Phone, MapPin, Instagram, Facebook, Linkedin } from 'lucide-react';
 import { cn } from '../lib/utils';
@@ -82,9 +83,9 @@ export default function Navbar() {
           <a href="#portfolio" className="text-xs font-bold uppercase tracking-widest hover:text-brand-yellow transition-colors">Portfolio</a>
           <a href="#team" className="text-xs font-bold uppercase tracking-widest hover:text-brand-yellow transition-colors">Our Team</a>
           
-          <a href="/contact" className="ml-4 px-6 py-2 bg-brand-yellow text-dark-charcoal rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-all">
+          <Link to="/contact" className="ml-4 px-6 py-2 bg-brand-yellow text-dark-charcoal rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-all">
             Get in Touch
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -116,13 +117,13 @@ export default function Navbar() {
                   {item}
                 </a>
               ))}
-              <a 
-                href="/contact"
+              <Link 
+                to="/contact"
                 className="block w-full py-4 bg-brand-yellow text-dark-charcoal rounded-2xl text-center font-bold"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Get in Touch
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}
