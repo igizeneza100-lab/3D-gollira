@@ -32,11 +32,11 @@ export default function Navbar() {
           : 'bg-transparent py-4'
       )}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between h-14">
+      <div className="max-w-7xl mx-auto flex items-center justify-between h-16">
         <a href="/" className="flex items-center group transition-colors">
-          <div className="w-16 h-16 flex items-center justify-center overflow-hidden transform group-hover:scale-105 transition-transform">
+          <div className="w-24 h-24 flex items-center justify-center overflow-hidden transform group-hover:scale-105 transition-transform">
             <img 
-              src="/logo1pngwhite.png" 
+              src="/logoheader.png" 
               alt="Gorilla 3D" 
               className="w-full h-full object-contain"
             />

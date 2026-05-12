@@ -23,26 +23,29 @@ export default function Hero() {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
 
+      // Ensure elements are visible initially if JS fails or for debugging
+      gsap.set('.hero-word, #subtext-content, .cta-btn, .meta-item', { opacity: 1, y: 0 });
+
       tl.from('.hero-word', {
         y: 100,
         opacity: 0,
-        stagger: 0.05,
+        stagger: 0.1,
         duration: 1.2,
         ease: 'expo.out',
       })
-        .from(subTextRef.current, {
+        .from('#subtext-content', {
           y: 20,
           opacity: 0,
           duration: 0.8,
           ease: 'power3.out',
         }, '-=0.8')
         .from('.cta-btn', {
-          scale: 0.8,
+          y: 20,
           opacity: 0,
-          stagger: 0.2,
+          stagger: 0.1,
           duration: 0.6,
-          ease: 'back.out(1.7)',
-        }, '-=0.4')
+          ease: 'power2.out',
+        }, '-=0.6')
         .from('.meta-item', {
           opacity: 0,
           y: 10,
@@ -200,6 +203,7 @@ export default function Hero() {
 
           {/* Subtext */}
           <div
+            id="subtext-content"
             ref={subTextRef}
             className="
               max-w-[480px]
