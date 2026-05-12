@@ -5,35 +5,99 @@ import gsap from 'gsap';
 
 const team = [
   {
-    name: 'Cyusa Benjamin',
-    role: 'Chief Executive Officer',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop',
-    bio: 'Visionary leader driving the strategic direction and brand reputation of Gorilla 3D Studio.',
+    name: 'Earl Daniel Ssekyondwa',
+    role: 'Creative Director',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop',
+    bio: 'Creative visionary leading the artistic direction and innovative design solutions.',
     socials: {
       linkedin: '#',
       twitter: '#',
       instagram: '#'
     },
     cv: {
-      education: ['MBA in Strategic Leadership', 'BSc in Business Administration'],
-      experience: ['10+ Years Corporate Strategy', 'Former Regional Director'],
-      skills: ['Executive Strategy', 'Business Growth', 'Partnership Management']
+      education: ['MA in Digital Arts', 'BA in Creative Design'],
+      experience: ['Senior Art Director', 'Brand Strategist'],
+      skills: ['Creative Direction', 'Brand Identity', 'Visual Storytelling']
     }
   },
   {
-    name: 'Earl Daniel Ssekyondwa',
-    role: 'Marketing Manager',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop',
-    bio: 'Strategic marketing expert focused on brand positioning and market expansion.',
+    name: 'CYUSA Benjamin',
+    role: 'Animator/Motion Designer',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop',
+    bio: 'Specialist in bringing static designs to life through fluid animation and motion graphics.',
     socials: {
       linkedin: '#',
       twitter: '#',
       instagram: '#'
     },
     cv: {
-      education: ['MA in Digital Marketing', 'BA in Communications'],
-      experience: ['Senior Marketing Specialist', 'Brand Strategist'],
-      skills: ['Market Analysis', 'Campaign Management', 'Growth Hacking']
+      education: ['BFA in Animation', 'Motion Graphics Certification'],
+      experience: ['VFX Artist', '2D/3D Animator'],
+      skills: ['After Effects', 'Cinema 4D', 'Character Animation']
+    }
+  },
+  {
+    name: 'Munezero Emmanuel',
+    role: 'Videographer',
+    image: 'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?q=80&w=1974&auto=format&fit=crop',
+    bio: 'Capturing compelling visual stories through high-quality video production.',
+    socials: {
+      linkedin: '#',
+      twitter: '#',
+      instagram: '#'
+    },
+    cv: {
+      education: ['Diploma in Film Production', 'Cinematography Workshop'],
+      experience: ['Event Videographer', 'Commercial Film Maker'],
+      skills: ['Cinematography', 'Lighting', 'Video Production']
+    }
+  },
+  {
+    name: 'Bruno IHIRWE',
+    role: 'Photographer',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop',
+    bio: 'Professional photographer with an eye for detail and stunning visual composition.',
+    socials: {
+      linkedin: '#',
+      twitter: '#',
+      instagram: '#'
+    },
+    cv: {
+      education: ['BA in Photography', 'Visual Arts Diploma'],
+      experience: ['Commercial Photographer', 'Portait Specialist'],
+      skills: ['Studio Photography', 'Image Processing', 'Visual Composition']
+    }
+  },
+  {
+    name: 'Lawrance Latim Wathum',
+    role: 'Graphic Designer',
+    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop',
+    bio: 'Creating impactful visual identities and graphic solutions for diverse brands.',
+    socials: {
+      linkedin: '#',
+      twitter: '#',
+      instagram: '#'
+    },
+    cv: {
+      education: ['BSc in Graphic Design', 'Visual Communications'],
+      experience: ['Freelance Graphic Artist', 'Junior Designer'],
+      skills: ['Adobe Suite', 'Vector Illustration', 'Layout Design']
+    }
+  },
+  {
+    name: 'Ronald Sabiiti',
+    role: 'Editor/Post-production specialist',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1974&auto=format&fit=crop',
+    bio: 'Expert in post-production, weaving together footage into seamless narratives.',
+    socials: {
+      linkedin: '#',
+      twitter: '#',
+      instagram: '#'
+    },
+    cv: {
+      education: ['Certificate in Post-Production', 'Film Studies'],
+      experience: ['Senior Video Editor', 'Colorist'],
+      skills: ['DaVinci Resolve', 'Premiere Pro', 'Sound Design']
     }
   },
   {
@@ -50,22 +114,6 @@ const team = [
       education: ['BSc in Software Engineering', 'Certified Cloud Architect'],
       experience: ['Lead Developer at Fintech Startup', 'System Architect'],
       skills: ['React/Next.js', 'Node.js/Python', 'Cloud Infrastructure']
-    }
-  },
-  {
-    name: 'Bruno IHIRWE',
-    role: 'UI/UX designer',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop',
-    bio: 'Passionate about creating intuitive and visually stunning user experiences.',
-    socials: {
-      linkedin: '#',
-      twitter: '#',
-      instagram: '#'
-    },
-    cv: {
-      education: ['Degree in Interactive Media Design', 'HCI Specialist Certification'],
-      experience: ['Visual Designer at Creative Agency', 'Freelance UI Consultant'],
-      skills: ['User Interface Design', 'Prototyping', 'User Research']
     }
   }
 ];

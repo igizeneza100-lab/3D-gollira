@@ -1,39 +1,47 @@
 import { motion } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
+import edTechImg from '../assets/project/educational-support-activities-gorilla-3d.png';
+import urbanImg from '../assets/project/specialized-3d-design-rwanda.png';
+import consultancyImg from '../assets/project/gorilla-studio-management-consultancy.png';
+import researchImg from '../assets/project/social-sciences-humanities-research-rwanda.png';
+import digitalLearningImg from '../assets/project/innovative-digital-solutions-kigali.png';
 
 const projects = [
   {
     title: 'EdTech Ecosystem',
     category: 'Educational Support',
-    image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2132&auto=format&fit=crop',
+    image: edTechImg,
     size: 'col-span-2 row-span-2'
   },
   {
     title: 'Urban Design Visualization',
     category: 'Specialized Design',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop',
+    image: urbanImg,
     size: 'col-span-1 row-span-1'
   },
   {
     title: 'Consultancy Insights',
     category: 'Management',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop',
+    image: consultancyImg,
     size: 'col-span-1 row-span-2'
   },
   {
     title: 'Social Research Lab',
     category: 'R&D',
-    image: 'https://images.unsplash.com/photo-1532152272207-fd2300bb4897?q=80&w=2070&auto=format&fit=crop',
+    image: researchImg,
     size: 'col-span-1 row-span-1'
   },
   {
     title: 'Digital Learning Portal',
     category: 'Educational Support',
-    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2070&auto=format&fit=crop',
+    image: digitalLearningImg,
     size: 'col-span-2 row-span-1'
   }
 ];
 
 export default function Portfolio() {
+  const navigate = useNavigate();
+
   return (
     <section id="portfolio" className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -63,6 +71,7 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
+              onClick={() => navigate('/projects')}
               className={`${project.size} relative group overflow-hidden rounded-[40px] cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-700`}
             >
               <img 
@@ -83,7 +92,10 @@ export default function Portfolio() {
         </div>
         
         <div className="mt-16 text-center">
-          <button className="px-10 py-4 bg-main-bg border border-black/5 hover:bg-black hover:text-white text-dark-charcoal font-bold rounded-2xl transition-all">
+          <button 
+            onClick={() => navigate('/projects')}
+            className="px-10 py-4 bg-main-bg border border-black/5 hover:bg-black hover:text-white text-dark-charcoal font-bold rounded-2xl transition-all"
+          >
             View All Projects
           </button>
         </div>

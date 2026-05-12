@@ -1,97 +1,162 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Instagram, Twitter, Linkedin, Youtube } from 'lucide-react';
+import { Instagram, Twitter, Linkedin, Youtube, Facebook } from 'lucide-react';
+
+const NAV_COLS = [
+  {
+    heading: 'Navigate',
+    links: ['Home', 'Services', 'Portfolio', 'Collaborate', 'About'],
+  },
+  {
+    heading: 'Learn',
+    links: ['Our Story', 'Blog', 'Careers', 'Press', 'Awards'],
+  },
+  {
+    heading: 'Help',
+    links: ['FAQ', 'Contact Us', 'Accessibility', 'Partnerships', 'Support'],
+  },
+  {
+    heading: 'Gorilla 3D',
+    links: ['Design', 'Consultancy', 'Research', 'Innovation', '3D Studio'],
+  },
+];
+
+const SOCIALS = [
+  { Icon: Instagram, label: 'Instagram' },
+  { Icon: Facebook,  label: 'Facebook'  },
+  { Icon: Twitter,   label: 'X / Twitter' },
+  { Icon: Linkedin,  label: 'LinkedIn'   },
+  { Icon: Youtube,   label: 'YouTube'    },
+];
 
 export default function Footer() {
+  const [email, setEmail] = useState('');
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[#1E5F59] text-white py-12 md:py-16 overflow-hidden">
-      {/* Cinematic Background Image/Gradient */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1E5F59] via-[#1E5F59]/80 to-transparent" />
-        <img 
-          src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop" 
-          alt="Cinematic Background"
-          className="w-full h-full object-cover opacity-20 grayscale"
-        />
-      </div>
+    <footer
+      className="relative text-white overflow-hidden"
+      style={{ background: '#0c2b22' }}
+    >
+      <div className="max-w-7xl mx-auto px-8 md:px-12 pt-16 pb-10">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        {/* Top Section: Central Logo & Tagline */}
-        <div className="flex flex-col items-center text-center mb-12 md:mb-16">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+        {/*
+          Two-zone row:
+          LEFT  — 4 nav columns  (~58% width)
+          RIGHT — newsletter + socials (~42% width)
+        */}
+        <div className="flex flex-col lg:flex-row gap-14 lg:gap-0 mb-12">
+
+          {/* ── Left: 4 Nav Columns ─────────────────── */}
+          <div className="flex flex-col sm:flex-row gap-10 sm:gap-0 lg:w-[58%] lg:pr-12">
+            {NAV_COLS.map((col, ci) => (
+              <motion.div
+                key={col.heading}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: ci * 0.06 }}
+                className="flex-1 min-w-[130px]"
+              >
+                <h4 className="text-[15px] font-bold text-white mb-5 tracking-tight">
+                  {col.heading}
+                </h4>
+                <ul className="space-y-3">
+                  {col.links.map((link) => (
+                    <li key={link}>
+                      <a
+                        href="#"
+                        className="text-[14px] text-white/55 hover:text-white transition-colors duration-150 block"
+                      >
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* ── Right: Newsletter + Socials ─────────── */}
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="w-32 h-32 md:w-36 md:h-36 mb-6"
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="lg:w-[42%] lg:pl-12 lg:border-l border-white/10 flex flex-col gap-8"
           >
-            <img 
-              src="/logo1pngwhite.png" 
-              alt="Gorilla 3D" 
-              className="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]"
-            />
-          </motion.div>
-          <p className="max-w-xl text-base md:text-lg text-white/70 font-display tracking-tight leading-relaxed">
-            The National <span className="text-white font-bold">Gorilla 3D Studio</span> is a pioneer in digital rehabilitation, combining creativity and technology for a better tomorrow.
-          </p>
-        </div>
+            {/* Newsletter */}
+            <div>
+              <p className="text-[15px] font-bold text-white mb-5 leading-snug">
+                Sign up to get our latest work &amp; insights
+              </p>
 
-        {/* Middle Section: Links Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12 border-t border-white/10 pt-12">
-          <div className="col-span-2 md:col-span-1 md:border-r border-white/5 md:pr-8">
-            <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40 mb-6">About</h4>
-            <p className="text-sm text-white/50 leading-relaxed">
-              Combining creativity, technology, and research to provide impactful solutions for a better tomorrow.
-            </p>
-            <div className="flex gap-4 mt-6">
-              {[Instagram, Twitter, Linkedin, Youtube].map((Icon, i) => (
-                <a key={i} href="#" className="text-white/40 hover:text-white transition-colors">
-                  <Icon className="w-5 h-5" />
+              {/* Email + Subscribe side-by-side */}
+              <div className="flex gap-2">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Your Email Address"
+                  className="
+                    flex-1 min-w-0
+                    px-4 py-3
+                    bg-white text-[#0c2b22]
+                    rounded-xl text-sm font-medium
+                    placeholder:text-[#0c2b22]/40
+                    focus:outline-none border-0
+                  "
+                />
+                <button
+                  className="
+                    shrink-0 px-5 py-3
+                    bg-brand-yellow text-dark-charcoal
+                    text-sm font-bold rounded-xl
+                    hover:scale-[1.03] active:scale-[0.97]
+                    transition-transform duration-150
+                    whitespace-nowrap
+                  "
+                >
+                  Subscribe
+                </button>
+              </div>
+            </div>
+
+            {/* Social Icons */}
+            <div className="flex gap-5 items-center">
+              {SOCIALS.map(({ Icon, label }) => (
+                <a
+                  key={label}
+                  href="#"
+                  aria-label={label}
+                  className="text-white/60 hover:text-white transition-colors duration-150"
+                >
+                  <Icon className="w-6 h-6" strokeWidth={1.8} />
                 </a>
               ))}
             </div>
-          </div>
 
-          <div>
-            <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40 mb-6">Navigation</h4>
-            <ul className="space-y-3">
-              {['Home', 'Services', 'Portfolio', 'Collaborate'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-sm text-white/60 hover:text-white transition-colors block">{item}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40 mb-6">Expertise</h4>
-            <ul className="space-y-3">
-              {['Design', 'Consultancy', 'Research', 'Innovation'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-sm text-white/60 hover:text-white transition-colors block">{item}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="flex flex-col">
-            <div>
-              <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40 mb-6">Contact</h4>
-              <p className="text-sm text-white/60 italic">hello@gorilla3d.com</p>
-            </div>
-            <div className="mt-8">
-              <h4 className="text-[11px] font-display font-bold text-brand-yellow italic">"Together, We Build A Better Future"</h4>
-            </div>
-          </div>
+            <p className="text-xs font-display font-bold italic text-brand-yellow/70 leading-snug max-w-[260px] mt-auto hidden lg:block">
+              "Together, We Build A Better Future"
+            </p>
+          </motion.div>
         </div>
 
-        {/* Bottom Section: Legal & Crisis Info */}
-        <div className="pt-8 border-t border-white/10 flex flex-col items-center">
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-2">
-            <p className="text-[10px] text-white/40 uppercase tracking-[0.2em] font-bold">
-              © {currentYear} Gorilla 3D Studio.
-            </p>
-            <a href="#" className="text-[10px] text-white/40 uppercase tracking-[0.2em] font-bold hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="text-[10px] text-white/40 uppercase tracking-[0.2em] font-bold hover:text-white transition-colors">Terms</a>
+        {/* ─── Bottom Bar ─────────────────────────────── */}
+        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-3">
+          <p className="text-[13px] text-white/45">
+            © {currentYear} Gorilla 3D Studio. All Rights Reserved.
+          </p>
+          <div className="flex gap-6">
+            {['Terms of Service', 'Privacy Policy', 'Cookie Policy'].map((item) => (
+              <a
+                key={item}
+                href="#"
+                className="text-[13px] text-white/45 hover:text-white transition-colors"
+              >
+                {item}
+              </a>
+            ))}
           </div>
         </div>
       </div>

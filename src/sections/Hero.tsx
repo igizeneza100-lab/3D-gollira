@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SplitType from 'split-type';
 import { cn } from '../lib/utils';
+import homeCover from '../assets/Home-cover.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,13 +18,11 @@ export default function Hero() {
   useEffect(() => {
     if (!containerRef.current) return;
 
-    // Split text for animation
-    const textLines = new SplitType(textRef.current!, { types: 'lines,words' });
-    
+    new SplitType(textRef.current!, { types: 'lines,words' });
+
     const ctx = gsap.context(() => {
-      // 1. Initial entrance
       const tl = gsap.timeline();
-      
+
       tl.from('.hero-word', {
         y: 100,
         opacity: 0,
@@ -31,21 +30,27 @@ export default function Hero() {
         duration: 1.2,
         ease: 'expo.out',
       })
-      .from(subTextRef.current, {
-        y: 20,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out'
-      }, '-=0.8')
-      .from('.cta-btn', {
-        scale: 0.8,
-        opacity: 0,
-        stagger: 0.2,
-        duration: 0.6,
-        ease: 'back.out(1.7)'
-      }, '-=0.4');
+        .from(subTextRef.current, {
+          y: 20,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+        }, '-=0.8')
+        .from('.cta-btn', {
+          scale: 0.8,
+          opacity: 0,
+          stagger: 0.2,
+          duration: 0.6,
+          ease: 'back.out(1.7)',
+        }, '-=0.4')
+        .from('.meta-item', {
+          opacity: 0,
+          y: 10,
+          stagger: 0.1,
+          duration: 0.6,
+          ease: 'power2.out',
+        }, '-=0.4');
 
-      // 2. Solar Eclipse / Sunlight Reveal on Scroll
       gsap.to(glowRef.current, {
         scrollTrigger: {
           trigger: containerRef.current,
@@ -72,7 +77,6 @@ export default function Hero() {
         filter: 'blur(10px)',
       });
 
-      // Particle floating effect
       gsap.to('.particle', {
         y: 'random(-100, 100)',
         x: 'random(-50, 50)',
@@ -80,10 +84,7 @@ export default function Hero() {
         repeat: -1,
         yoyo: true,
         ease: 'sine.inOut',
-        stagger: {
-          amount: 5,
-          from: 'random'
-        }
+        stagger: { amount: 5, from: 'random' },
       });
     }, containerRef);
 
@@ -91,39 +92,39 @@ export default function Hero() {
   }, []);
 
   return (
-    <section 
+    <section
       ref={containerRef}
-      className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden bg-[#0a0a0a]"
+      className="relative h-screen overflow-hidden bg-[#0a0a0a]"
     >
-      {/* Cinematic Background Layer */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden bg-black">
-        {/* Gorilla Continuity Visual */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-10 blur-2xl scale-150">
-          <img 
-            src="https://storage.googleapis.com/test-media-gen/a-1/input_file_0.png" 
-            alt="" 
-            className="w-full h-full object-contain filter grayscale invert brightness-200"
+      {/* ─── Background Layer ─────────────────────────── */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 opacity-40">
+          <img
+            src={homeCover}
+            alt=""
+            aria-hidden="true"
+            className="w-full h-full object-cover"
           />
         </div>
 
-        {/* The "Eclipse" Light Source */}
-        <div 
+        {/* Eclipse glow */}
+        <div
           ref={glowRef}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border-[1px] border-brand-teal/20 rounded-full opacity-20"
+          className="absolute top-1/2 right-[15%] -translate-y-1/2 w-[480px] h-[480px] rounded-full opacity-15"
           style={{
             background: 'radial-gradient(circle, #13a085 0%, transparent 70%)',
-            boxShadow: '0 0 150px #13a08544'
+            boxShadow: '0 0 150px #13a08530',
           }}
         />
-        
-        {/* Atmospheric Particles */}
-        <div ref={particlesRef} className="absolute inset-0 opacity-30">
+
+        {/* Particles */}
+        <div ref={particlesRef} className="absolute inset-0 opacity-25">
           {[...Array(20)].map((_, i) => (
-            <div 
+            <div
               key={i}
               className={cn(
-                "particle absolute w-1 h-1 rounded-full",
-                i % 2 === 0 ? "bg-brand-yellow" : "bg-brand-teal"
+                'particle absolute w-1 h-1 rounded-full',
+                i % 2 === 0 ? 'bg-brand-yellow' : 'bg-brand-teal'
               )}
               style={{
                 top: `${Math.random() * 100}%`,
@@ -133,64 +134,158 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* Ambient Gradient */}
-        <div className="absolute inset-0 bg-radial-[at_50%_50%] from-brand-teal-dark/10 to-transparent" />
+        {/* Vignette */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/40" />
       </div>
 
-      <div className="relative z-10 max-w-5xl text-center flex flex-col items-center">
-        <motion.span 
-          initial={{ opacity: 0, letterSpacing: '0.5em' }}
-          animate={{ opacity: 0.6, letterSpacing: '0.2em' }}
-          transition={{ duration: 1.5, ease: 'easeOut' }}
-          className="text-brand-yellow text-xs sm:text-sm font-bold uppercase mb-6"
-        >
-          Pioneering the Creative Frontier
-        </motion.span>
-        
-        <h1 
-          ref={textRef}
-          className="text-5xl md:text-8xl lg:text-9xl font-display font-bold leading-[0.8] tracking-tighter mb-8"
-        >
-          <div className="overflow-hidden">
-            <span className="hero-word block">ALPHA</span>
-          </div>
-          <div className="overflow-hidden">
-             <span className="hero-word block text-brand-teal">POWERED</span>
-          </div>
-          <div className="overflow-hidden">
-            <span className="hero-word block">DESIGN</span>
-          </div>
-        </h1>
+      {/* ─── Main Content Grid ─────────────────────────── */}
+      {/*
+        Layout uses a 12-col CSS grid so every element snaps to the
+        same left edge. Content spans cols 2–8 on desktop, full on mobile.
+        Vertical rhythm is handled with gap-based flex rather than
+        arbitrary margin overrides.
+      */}
+      <div
+        className="
+          relative z-10 h-full
+          grid grid-cols-12
+          px-6 md:px-0
+        "
+      >
+        {/* Left padding column: 1 col on desktop, 0 on mobile */}
+        <div className="hidden md:block col-span-1" />
 
-        <div 
-          ref={subTextRef}
-          className="max-w-2xl text-lg text-white/50 mb-10 leading-relaxed font-sans px-4"
+        {/* Content column */}
+        <div
+          className="
+            col-span-12 md:col-span-7
+            flex flex-col justify-center
+            gap-6
+            pt-20 pb-28
+          "
         >
-          Unleashing raw creative strength with technical dominance. We are the guardians 
-           of innovation, transforming consultancy and R&D into a cinematic digital safari.
-        </div>
+          {/* Eyebrow */}
+          <motion.span
+            initial={{ opacity: 0, letterSpacing: '0.5em' }}
+            animate={{ opacity: 0.6, letterSpacing: '0.2em' }}
+            transition={{ duration: 1.5, ease: 'easeOut' }}
+            className="
+              meta-item
+              text-brand-yellow text-[10px] sm:text-xs
+              font-bold uppercase tracking-[0.25em]
+              block
+            "
+          >
+            Pioneering the Creative Frontier
+          </motion.span>
 
-        <div className="flex flex-col sm:flex-row gap-4">
-          <button className="cta-btn px-8 py-4 bg-brand-yellow text-dark-charcoal font-bold rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-lg shadow-brand-yellow/20">
-            Explore Our World
-          </button>
-          <button className="cta-btn px-8 py-4 glass text-white font-bold rounded-2xl hover:bg-white/10 transition-all border-white/20">
-            Learn Our Approach
-          </button>
+          {/* Headline */}
+          <h1
+            ref={textRef}
+            className="
+              font-display font-bold
+              text-[clamp(2.5rem,7vw,5rem)]
+              leading-[0.88] tracking-[-0.03em]
+              m-0 p-0
+            "
+          >
+            <div className="overflow-hidden">
+              <span className="hero-word block text-white">ALPHA POWERED</span>
+            </div>
+            <div className="overflow-hidden">
+              <span className="hero-word block text-brand-teal">DESIGN</span>
+            </div>
+          </h1>
+
+          {/* Subtext */}
+          <div
+            ref={subTextRef}
+            className="
+              max-w-[480px]
+              text-[clamp(0.875rem,1.5vw,1.0625rem)]
+              text-white/50
+              leading-relaxed
+              font-sans
+            "
+          >
+            Unleashing raw creative strength with technical dominance.
+            We are the guardians of innovation — transforming consultancy
+            and R&amp;D into a cinematic digital safari.
+          </div>
+
+          {/* CTAs */}
+          <div className="flex flex-row gap-3 flex-wrap">
+            <button
+              className="
+                cta-btn
+                px-7 py-3.5
+                bg-brand-yellow text-dark-charcoal
+                text-sm font-bold tracking-wide
+                rounded-xl
+                hover:scale-[1.03] active:scale-[0.97]
+                transition-transform duration-150
+                shadow-lg shadow-brand-yellow/20
+                whitespace-nowrap
+              "
+            >
+              Explore Our World
+            </button>
+            <button
+              className="
+                cta-btn
+                px-7 py-3.5
+                bg-white/5 text-white
+                text-sm font-bold tracking-wide
+                rounded-xl
+                border border-white/15
+                hover:bg-white/10 active:scale-[0.97]
+                transition-all duration-150
+                whitespace-nowrap
+              "
+            >
+              Learn Our Approach
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Hero Footer Component */}
-      <div className="absolute bottom-10 left-0 w-full px-12 flex justify-between items-end text-[10px] uppercase tracking-widest text-white/30 font-bold hidden md:flex">
-        <div className="flex flex-col gap-1">
+      {/* ─── Footer Bar ────────────────────────────────── */}
+      {/*
+        Pinned to the bottom, sharing the same 12-col grid so the
+        left text aligns perfectly with the headline above.
+      */}
+      <div
+        className="
+          absolute bottom-0 left-0 right-0
+          hidden md:grid grid-cols-12
+          px-0 pb-8
+          text-[10px] uppercase tracking-[0.18em]
+          text-white/25 font-bold
+        "
+      >
+        {/* Left padding — matches content column start */}
+        <div className="col-span-1" />
+
+        {/* Left label */}
+        <div className="col-span-2 flex flex-col gap-1 justify-end meta-item">
           <span>Kacyiru, Kigali</span>
           <span>Rwanda</span>
         </div>
-        <div className="h-[1px] bg-white/10 flex-1 mx-12 mb-2" />
-        <div className="flex flex-col items-end gap-1">
+
+        {/* Divider line — fills middle */}
+        <div className="col-span-6 flex items-end pb-[3px]">
+          <div className="w-full h-px bg-white/10" />
+        </div>
+
+        {/* Right label */}
+        <div className="col-span-2 flex flex-col items-end gap-1 justify-end meta-item">
           <span>Gorilla 3D Studio © 2026</span>
           <span>EST. MMXXIII</span>
         </div>
+
+        {/* Right padding */}
+        <div className="col-span-1" />
       </div>
     </section>
   );

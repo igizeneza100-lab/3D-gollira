@@ -11,6 +11,7 @@ import SmoothScroll from './components/SmoothScroll';
 import SplashScreen from './components/SplashScreen';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
+import Project from './pages/Project';
 
 export default function App() {
   const [isLoaded, setIsLoaded] = useState(() => {
@@ -34,6 +35,7 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/projects" element={<Project />} />
               {/* Fallback path */}
               <Route path="*" element={<Home />} />
             </Routes>
