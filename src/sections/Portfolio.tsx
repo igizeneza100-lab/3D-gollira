@@ -91,12 +91,18 @@ export default function Portfolio() {
           ))}
         </div>
         
-        <div className="mt-16 text-center">
+        <div className="mt-16 flex flex-col sm:flex-row justify-center items-center gap-4">
           <button 
             onClick={() => navigate('/projects')}
             className="px-10 py-4 bg-main-bg border border-black/5 hover:bg-black hover:text-white text-dark-charcoal font-bold rounded-2xl transition-all"
           >
             View All Projects
+          </button>
+          <button 
+            onClick={() => navigate('/contact')}
+            className="px-10 py-4 bg-brand-yellow hover:bg-black hover:text-white text-dark-charcoal font-bold rounded-2xl transition-all shadow-lg"
+          >
+            Want to start your project?
           </button>
         </div>
       </div>

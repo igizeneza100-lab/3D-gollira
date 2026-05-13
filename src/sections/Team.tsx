@@ -1,13 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Linkedin, Twitter, Mail, X, FileText, Award, GraduationCap, Instagram } from 'lucide-react';
-import gsap from 'gsap';
+
+import earlImg from '../assets/Teams/Earl Daniel Ssekyondwa.jpg';
+import cyusaImg from '../assets/Teams/Cyusa-Benjamin-Profile-Picture.png';
+import brunoImg from '../assets/Teams/Bruno IHIRWE.jpg';
+import bahiziImg from '../assets/Teams/Bahizi-David-Blair-Profile-Picture.png';
 
 const team = [
   {
     name: 'Earl Daniel Ssekyondwa',
     role: 'Creative Director',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop',
+    image: earlImg,
     bio: 'Creative visionary leading the artistic direction and innovative design solutions.',
     socials: {
       linkedin: '#',
@@ -23,7 +27,7 @@ const team = [
   {
     name: 'CYUSA Benjamin',
     role: 'Animator/Motion Designer',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop',
+    image: cyusaImg,
     bio: 'Specialist in bringing static designs to life through fluid animation and motion graphics.',
     socials: {
       linkedin: '#',
@@ -55,7 +59,7 @@ const team = [
   {
     name: 'Bruno IHIRWE',
     role: 'Photographer',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop',
+    image: brunoImg,
     bio: 'Professional photographer with an eye for detail and stunning visual composition.',
     socials: {
       linkedin: '#',
@@ -103,7 +107,7 @@ const team = [
   {
     name: 'Bahizi David Blair',
     role: 'Full-stack Developer',
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop',
+    image: bahiziImg,
     bio: 'Highly skilled developer bridging the gap between design and functionality.',
     socials: {
       linkedin: '#',
@@ -124,20 +128,25 @@ export default function Team() {
   return (
     <section id="team" className="py-24 px-6 bg-main-bg relative">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <motion.span 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-brand-teal font-bold uppercase tracking-widest text-sm"
-          >
-            Meet Our Team
-          </motion.span>
-          <h2 className="text-4xl md:text-6xl font-display font-bold mt-4 text-dark-charcoal">
-            THE MINDS BEHIND THE <span className="text-brand-teal">VISION</span>
-          </h2>
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+          <div>
+            <motion.span 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              className="text-brand-teal font-bold uppercase tracking-widest text-sm"
+            >
+              Meet Our Team
+            </motion.span>
+            <h2 className="text-4xl md:text-6xl font-display font-bold mt-4 text-dark-charcoal uppercase leading-[0.9]">
+              THE MINDS BEHIND <span className="text-brand-teal">THE VISION</span>
+            </h2>
+          </div>
+          <p className="text-dark-charcoal/40 text-sm max-w-sm md:text-right font-medium">
+            A collective of brilliant creatives and technical experts dedicated to bringing extraordinary ideas to life.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
           {team.map((member, index) => (
             <motion.div
               key={index}

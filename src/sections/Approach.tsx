@@ -1,86 +1,89 @@
 import { motion } from 'motion/react';
-import { Users, UserCog, UserCheck, ArrowRight } from 'lucide-react';
 
 const steps = [
   {
+    number: '01',
     role: 'Executive',
     title: 'Strategic Oversight',
     description: 'The CEO ensures brand reputation and strategic policies are executed with precision across all departments.',
-    icon: UserCheck,
-    color: 'bg-brand-yellow',
-    textColor: 'text-dark-charcoal'
   },
   {
+    number: '02',
     role: 'Middle Management',
     title: 'Operational Guidance',
     description: 'Department heads ensure output supports executive strategies while maintaining team efficiency.',
-    icon: UserCog,
-    color: 'bg-brand-teal',
-    textColor: 'text-white'
   },
   {
+    number: '03',
     role: 'Individual Contributors',
     title: 'Creative Execution',
     description: 'Specialists crafting content, PR analysis, and technical releases that communicate our core messages.',
-    icon: Users,
-    color: 'bg-brand-teal-dark',
-    textColor: 'text-white'
   },
 ];
 
 export default function Approach() {
   return (
-    <section className="py-24 px-6 relative overflow-hidden bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <motion.span 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-brand-teal font-bold uppercase tracking-widest text-sm"
-          >
-            Our Structure
-          </motion.span>
-          <h2 className="text-4xl md:text-6xl font-display font-bold mt-4 text-dark-charcoal">
-            THE GORILLA <span className="text-brand-teal">ECOSYSTEM</span>
-          </h2>
-          <p className="text-dark-charcoal/60 max-w-2xl mx-auto mt-6">
+    <motion.section 
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-100px" }}
+      className="py-24 px-6 relative overflow-hidden bg-white rounded-[40px] md:rounded-[80px] shadow-sm my-4 md:my-10 border border-black/5"
+    >
+      {/* Background Texture from Assets */}
+      <div 
+        className="absolute inset-0 opacity-40 pointer-events-none"
+        style={{ 
+          backgroundImage: 'url(/src/assets/BG3.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+          <div>
+            <motion.span 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              className="text-brand-teal font-bold uppercase tracking-widest text-sm"
+            >
+              Our Structure
+            </motion.span>
+            <h2 className="text-4xl md:text-6xl font-display font-bold mt-4 text-dark-charcoal uppercase leading-[0.9]">
+              THE GORILLA <span className="text-brand-teal decoration-brand-yellow decoration-4 underline-offset-8">ECOSYSTEM</span>
+            </h2>
+          </div>
+          <p className="text-dark-charcoal/40 text-sm max-w-sm md:text-right font-medium">
             Our hierarchical flow is designed for synergy, where every layer fuels the overall brand success and innovation.
           </p>
         </div>
 
-        <div className="relative flex flex-col md:flex-row gap-8 items-center justify-between">
-          {/* Connecting Line (Desktop) */}
-          <div className="absolute top-1/2 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-dark-charcoal/10 to-transparent hidden md:block" />
-
+        <div className="relative flex flex-col md:flex-row gap-6 items-stretch justify-between mt-12">
           {steps.map((step, index) => (
             <motion.div
               key={step.role}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.2 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.15 }}
               viewport={{ once: true }}
-              className="relative z-10 w-full md:w-1/3 flex flex-col items-center"
+              className="relative w-full md:w-1/3 flex flex-col"
             >
-              <div className="group relative">
-                <div className={step.color + " w-24 h-24 rounded-full flex items-center justify-center shadow-2xl relative z-10 group-hover:scale-110 transition-transform duration-500"}>
-                  <step.icon className={step.textColor + " w-10 h-10"} />
-                </div>
-                {/* Visual pulse effect */}
-                <div className={step.color + " absolute inset-0 rounded-full animate-ping opacity-20 -z-10"} />
-              </div>
-
-              <div className="mt-8 text-center bg-main-bg p-8 rounded-3xl border border-dark-charcoal/5 hover:border-brand-teal/20 transition-all group hover:-translate-y-2">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-brand-teal opacity-60 mb-2 block">{step.role}</span>
-                <h3 className="text-2xl font-bold mb-4 font-display text-dark-charcoal">{step.title}</h3>
-                <p className="text-sm text-dark-charcoal/60 leading-relaxed">
+              <div className="flex-1 flex flex-col text-left bg-white/60 backdrop-blur-md p-10 rounded-[32px] border border-black/5 hover:border-black/10 hover:shadow-2xl transition-all duration-500 group">
+                <span className="text-6xl font-display font-black text-black/5 mb-6 group-hover:text-brand-teal/20 transition-colors">
+                  {step.number}
+                </span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-black/40 mb-3 block">
+                  {step.role}
+                </span>
+                <h3 className="text-2xl font-bold mb-4 font-display text-dark-charcoal max-w-[200px]">
+                  {step.title}
+                </h3>
+                <div className="w-8 h-1 bg-black/10 mb-6 group-hover:w-16 group-hover:bg-brand-teal transition-all duration-500" />
+                <p className="text-sm text-dark-charcoal/60 leading-relaxed font-medium">
                   {step.description}
                 </p>
-                
-                <div className="mt-6 flex flex-wrap justify-center gap-2">
-                  {index < steps.length - 1 && (
-                    <ArrowRight className="md:hidden w-6 h-6 text-brand-teal opacity-50 mt-4 mx-auto" />
-                  )}
-                </div>
               </div>
             </motion.div>
           ))}
@@ -115,6 +118,6 @@ export default function Approach() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

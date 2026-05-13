@@ -168,22 +168,22 @@ export default function ContactPage() {
               </motion.div>
             )}
 
-            <form className="space-y-5" onSubmit={handleSubmit}>
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="space-y-2">
-                <label htmlFor="name" className="text-sm font-medium">Full name</label>
+                <label htmlFor="name" className="text-sm font-bold text-dark-charcoal uppercase tracking-wider">Full name</label>
                 <input
                   id="name"
                   value={form.name}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => setForm((prev) => ({ ...prev, name: e.target.value }))}
                   placeholder="Your full name"
                   required
-                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="w-full rounded-2xl border border-gray-200 bg-gray-50/50 px-5 py-4 text-sm outline-none hover:bg-white hover:border-brand-teal focus:border-brand-teal focus:ring-4 focus:ring-brand-teal/20 transition-all duration-300"
                 />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium">Email</label>
+                  <label htmlFor="email" className="text-sm font-bold text-dark-charcoal uppercase tracking-wider">Email</label>
                   <input
                     id="email"
                     type="email"
@@ -191,28 +191,28 @@ export default function ContactPage() {
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setForm((prev) => ({ ...prev, email: e.target.value }))}
                     placeholder="you@example.com"
                     required
-                    className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="w-full rounded-2xl border border-gray-200 bg-gray-50/50 px-5 py-4 text-sm outline-none hover:bg-white hover:border-brand-teal focus:border-brand-teal focus:ring-4 focus:ring-brand-teal/20 transition-all duration-300"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="phone" className="text-sm font-medium">Phone number</label>
+                  <label htmlFor="phone" className="text-sm font-bold text-dark-charcoal uppercase tracking-wider">Phone number</label>
                   <input
                     id="phone"
                     value={form.phone}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setForm((prev) => ({ ...prev, phone: e.target.value }))}
                     placeholder="+250 7XX XXX XXX"
                     required
-                    className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="w-full rounded-2xl border border-gray-200 bg-gray-50/50 px-5 py-4 text-sm outline-none hover:bg-white hover:border-brand-teal focus:border-brand-teal focus:ring-4 focus:ring-brand-teal/20 transition-all duration-300"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium">Message</label>
+                <label htmlFor="message" className="text-sm font-bold text-dark-charcoal uppercase tracking-wider">Message</label>
                 <textarea
                   id="message"
-                  className="w-full min-h-36 rounded-md border border-input bg-background px-3 py-2 text-sm outline-none ring-offset-background placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  className="w-full min-h-36 rounded-2xl border border-gray-200 bg-gray-50/50 px-5 py-4 text-sm outline-none hover:bg-white hover:border-brand-teal focus:border-brand-teal focus:ring-4 focus:ring-brand-teal/20 transition-all duration-300 resize-none"
                   value={form.message}
                   onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setForm((prev) => ({ ...prev, message: e.target.value }))}
                   placeholder="Tell us what you need..."
@@ -220,7 +220,7 @@ export default function ContactPage() {
                 />
               </div>
 
-              <button type="submit" className="w-full md:w-auto px-8 py-3 rounded-md bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors disabled:opacity-50" disabled={isSubmitting}>
+              <button type="submit" className="w-full md:w-auto px-10 py-4 rounded-2xl bg-brand-yellow hover:bg-black hover:text-white text-dark-charcoal text-sm font-bold uppercase tracking-widest transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 disabled:opacity-50" disabled={isSubmitting}>
                 {isSubmitting ? 'Sending...' : 'Submit Message'}
               </button>
             </form>

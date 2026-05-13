@@ -1,108 +1,23 @@
-import { useEffect, useRef } from 'react';
-import { motion } from 'motion/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import SplitType from 'split-type';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Facebook, Instagram, Linkedin, Phone, MapPin, Mail } from 'lucide-react';
 import { cn } from '../lib/utils';
-import homeCover from '../assets/Home-cover.png';
 import heroVideo from '../assets/Herovideo.mp4';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLHeadingElement>(null);
-  const subTextRef = useRef<HTMLDivElement>(null);
-  const glowRef = useRef<HTMLDivElement>(null);
-  const particlesRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"] as const
+  });
 
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    new SplitType(textRef.current!, { types: 'lines,words' });
-
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline();
-
-      // Ensure elements are visible initially if JS fails or for debugging
-      gsap.set('.hero-word, #subtext-content, .cta-btn, .meta-item', { opacity: 1, y: 0 });
-
-      tl.from('.meta-item', {
-        opacity: 0,
-        x: -50,
-        letterSpacing: '0.8em',
-        duration: 1.5,
-        ease: 'power4.out',
-      })
-        .from('.hero-word', {
-          y: 100,
-          opacity: 0,
-          skewY: 7,
-          stagger: 0.15,
-          duration: 1.4,
-          ease: 'expo.out',
-        }, '-=1')
-        .from('#subtext-content', {
-          y: 40,
-          opacity: 0,
-          scale: 0.95,
-          duration: 1,
-          ease: 'power3.out',
-        }, '-=0.8')
-        .from('.cta-btn', {
-          y: 30,
-          opacity: 0,
-          stagger: 0.15,
-          duration: 0.8,
-          ease: 'back.out(1.7)',
-        }, '-=0.6')
-        .from('.meta-item-footer', {
-          opacity: 0,
-          y: 10,
-          stagger: 0.1,
-          duration: 0.6,
-          ease: 'power2.out',
-        }, '-=0.4');
-
-      gsap.to(glowRef.current, {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 1,
-        },
-        scale: 4,
-        opacity: 0.8,
-        rotate: 45,
-        filter: 'blur(100px)',
-      });
-
-      gsap.to('.hero-word', {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        },
-        y: -100,
-        opacity: 0,
-        stagger: 0.01,
-        filter: 'blur(10px)',
-      });
-
-      gsap.to('.particle', {
-        y: 'random(-100, 100)',
-        x: 'random(-50, 50)',
-        duration: 'random(3, 8)',
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-        stagger: { amount: 5, from: 'random' },
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
+  const glowScale = useTransform(scrollYProgress, [0, 1], [1, 4]);
+  const glowOpacity = useTransform(scrollYProgress, [0, 1], [0.15, 0.8]);
+  const glowRotate = useTransform(scrollYProgress, [0, 1], [0, 45]);
+  
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (
     <section
@@ -123,32 +38,69 @@ export default function Hero() {
         </div>
 
         {/* Eclipse glow */}
-        <div
-          ref={glowRef}
-          className="absolute top-1/2 right-[15%] -translate-y-1/2 w-[480px] h-[480px] rounded-full opacity-15"
+        <motion.div
           style={{
+            scale: glowScale,
+            opacity: glowOpacity,
+            rotate: glowRotate,
             background: 'radial-gradient(circle, #13a085 0%, transparent 70%)',
             boxShadow: '0 0 150px #13a08530',
           }}
+          className="absolute top-1/2 right-[15%] -translate-y-1/2 w-[480px] h-[480px] rounded-full"
         />
 
         {/* Particles */}
-        <div ref={particlesRef} className="absolute inset-0 opacity-25">
+        <div className="absolute inset-0 opacity-25">
           {[...Array(20)].map((_, i) => (
-            <div
+            <motion.div
               key={i}
               className={cn(
-                'particle absolute w-1 h-1 rounded-full',
+                'absolute w-1 h-1 rounded-full',
                 i % 2 === 0 ? 'bg-brand-yellow' : 'bg-brand-teal'
               )}
-              style={{
+              initial={{ 
                 top: `${Math.random() * 100}%`,
                 left: `${Math.random() * 100}%`,
+                y: 0,
+                x: 0
+              }}
+              animate={{ 
+                y: [0, Math.random() * 200 - 100],
+                x: [0, Math.random() * 100 - 50]
+              }}
+              transition={{
+                duration: 3 + Math.random() * 5,
+                repeat: Infinity,
+                repeatType: "mirror",
+                ease: "easeInOut"
               }}
             />
           ))}
         </div>
       </div>
+      {/* ─── Social Sidebar (Desktop) ──────────────────── */}
+      <motion.div 
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 1.5 }}
+        className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 flex-col gap-6 z-20"
+      >
+        {[
+          { icon: Facebook, href: '#' },
+          { icon: Linkedin, href: '#' },
+          { icon: Instagram, href: '#' },
+          { icon: Phone, href: 'tel:+250783723705' }
+        ].map((item, i) => (
+          <a
+            key={i}
+            href={item.href}
+            className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-brand-yellow hover:text-dark-charcoal transition-all duration-300 hover:scale-110"
+          >
+            <item.icon className="w-4 h-4" />
+          </a>
+        ))}
+      </motion.div>
+
       <div
         className="
           relative z-10 h-full
@@ -168,10 +120,57 @@ export default function Hero() {
             pt-20 pb-28
           "
         >
+          {/* Eyebrow */}
+          <motion.span
+            initial={{ opacity: 0, x: -50, letterSpacing: '0.8em' }}
+            animate={{ opacity: 0.6, x: 0, letterSpacing: '0.2em' }}
+            transition={{ duration: 1.5, ease: 'easeOut' }}
+            className="
+              text-brand-yellow text-[10px] sm:text-xs
+              font-bold uppercase
+              block
+            "
+          >
+            Welcome to
+          </motion.span>
+
+          {/* Headline */}
+          <motion.h1
+            style={{ y: heroY, opacity: heroOpacity }}
+            className="
+              font-display font-bold
+              text-[clamp(2.5rem,7vw,5rem)]
+              leading-[0.88] tracking-[-0.03em]
+              m-0 p-0
+            "
+          >
+            <div className="overflow-hidden">
+              <motion.span 
+                initial={{ y: 100, opacity: 0, skewY: 7 }}
+                animate={{ y: 0, opacity: 1, skewY: 0 }}
+                transition={{ duration: 1.4, ease: [0.19, 1, 0.22, 1], delay: 0.2 }}
+                className="block text-white"
+              >
+                GORILLA 3D
+              </motion.span>
+            </div>
+            <div className="overflow-hidden">
+              <motion.span 
+                initial={{ y: 100, opacity: 0, skewY: 7 }}
+                animate={{ y: 0, opacity: 1, skewY: 0 }}
+                transition={{ duration: 1.4, ease: [0.19, 1, 0.22, 1], delay: 0.35 }}
+                className="block text-brand-teal"
+              >
+                STUDIO
+              </motion.span>
+            </div>
+          </motion.h1>
+
           {/* Subtext */}
-          <div
-            id="subtext-content"
-            ref={subTextRef}
+          <motion.div
+            initial={{ y: 40, opacity: 0, scale: 0.95 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: 'easeOut', delay: 0.8 }}
             className="
               max-w-[600px]
               text-[clamp(1rem,1.8vw,1.25rem)]
@@ -181,16 +180,16 @@ export default function Hero() {
               font-sans
             "
           >
-            Unleashing raw creative strength with technical dominance.
-            We are the guardians of innovation — transforming consultancy
-            and R&amp;D into a cinematic digital safari.
-          </div>
+            Dedicated to providing comprehensive solutions through specialized design, management consultancy, and innovative research & development.
+          </motion.div>
 
           {/* CTAs */}
           <div className="flex flex-row gap-3 flex-wrap justify-center">
-            <button
+            <motion.button
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, ease: [0.175, 0.885, 0.32, 1.275], delay: 1 }}
               className="
-                cta-btn
                 px-7 py-3.5
                 bg-brand-yellow text-dark-charcoal
                 text-sm font-bold tracking-wide
@@ -202,10 +201,12 @@ export default function Hero() {
               "
             >
               Explore Our World
-            </button>
-            <button
+            </motion.button>
+            <motion.button
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, ease: [0.175, 0.885, 0.32, 1.275], delay: 1.15 }}
               className="
-                cta-btn
                 px-7 py-3.5
                 bg-white/5 text-white
                 text-sm font-bold tracking-wide
@@ -217,48 +218,38 @@ export default function Hero() {
               "
             >
               Learn Our Approach
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
 
-      {/* ─── Footer Bar ────────────────────────────────── */}
-      {/*
-        Pinned to the bottom, sharing the same 12-col grid so the
-        left text aligns perfectly with the headline above.
-      */}
-      <div
+      {/* ─── Bottom Contact Bar ────────────────────────── */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.2 }}
         className="
-          absolute bottom-0 left-0 right-0
-          hidden md:grid grid-cols-12
-          px-0 pb-8
-          text-[10px] uppercase tracking-[0.18em]
-          text-white/25 font-bold
+          absolute bottom-0 left-0 right-0 z-20
+          px-4 md:px-8 pb-6 md:pb-8
+          flex flex-col md:flex-row items-center justify-center gap-4 md:gap-12
+          text-[11px] md:text-sm text-white/90 font-medium tracking-wide
         "
       >
-        {/* Left padding — matches content column start */}
-        <div className="col-span-1" />
-
-        {/* Left label */}
-        <div className="col-span-2 flex flex-col gap-1 justify-end meta-item">
-          <span>Kacyiru, Kigali</span>
-          <span>Rwanda</span>
-        </div>
-
-        {/* Divider line — fills middle */}
-        <div className="col-span-6 flex items-end pb-[3px]">
-          <div className="w-full h-px bg-white/10" />
-        </div>
-
-        {/* Right label */}
-        <div className="col-span-2 flex flex-col items-end gap-1 justify-end meta-item">
-          <span>Gorilla 3D Studio © 2026</span>
-          <span>EST. MMXXIII</span>
-        </div>
-
-        {/* Right padding */}
-        <div className="col-span-1" />
-      </div>
+        <a href="#" className="flex items-center gap-2 hover:text-brand-yellow transition-colors">
+          <MapPin className="w-4 h-4 md:w-5 md:h-5 text-brand-yellow" />
+          <span>KG 684 St, Kigali, Kacyiru</span>
+        </a>
+        <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-white/20" />
+        <a href="tel:+250782750432" className="flex items-center gap-2 hover:text-brand-yellow transition-colors">
+          <Phone className="w-4 h-4 md:w-5 md:h-5 text-brand-yellow" />
+          <span>+250 782 750 432 / +250 788 307 952</span>
+        </a>
+        <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-white/20" />
+        <a href="mailto:info@gorilla3d.rw" className="flex items-center gap-2 hover:text-brand-yellow transition-colors">
+          <Mail className="w-4 h-4 md:w-5 md:h-5 text-brand-yellow" />
+          <span>info@gorilla3d.rw</span>
+        </a>
+      </motion.div>
     </section>
   );
 }

@@ -33,20 +33,20 @@ export default function Navbar() {
           : 'bg-transparent py-4'
       )}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto flex items-center justify-between h-20 md:h-24">
         <a href="/" className="flex items-center group transition-colors">
-          <div className="w-24 h-24 flex items-center justify-center overflow-hidden transform group-hover:scale-105 transition-transform">
+          <div className="w-32 h-32 md:w-40 md:h-40 flex items-center justify-center transform group-hover:scale-105 transition-transform">
             <img 
-              src="/logoheader.png" 
+              src={isScrolled ? "/logoheader.png" : "/logo white.png"} 
               alt="Gorilla 3D" 
-              className="w-full h-full object-contain"
+              className="w-full h-full object-contain transition-all duration-500"
             />
           </div>
         </a>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 text-white">
-          <a href="#" className="text-xs font-bold uppercase tracking-widest hover:text-brand-yellow transition-colors">Home</a>
+          <Link to="/" className="text-xs font-bold uppercase tracking-widest hover:text-brand-yellow transition-colors">Home</Link>
           <a href="#about" className="text-xs font-bold uppercase tracking-widest hover:text-brand-yellow transition-colors">About</a>
           
           <div 
@@ -83,7 +83,7 @@ export default function Navbar() {
           <a href="#portfolio" className="text-xs font-bold uppercase tracking-widest hover:text-brand-yellow transition-colors">Portfolio</a>
           <a href="#team" className="text-xs font-bold uppercase tracking-widest hover:text-brand-yellow transition-colors">Our Team</a>
           
-          <Link to="/contact" className="ml-4 px-6 py-2 bg-brand-yellow text-dark-charcoal rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-all">
+          <Link to="/contact" className="ml-4 px-7 py-3.5 bg-brand-yellow text-dark-charcoal rounded-xl text-sm font-bold tracking-wide hover:scale-[1.03] active:scale-[0.97] transition-transform duration-150 shadow-lg shadow-brand-yellow/20 whitespace-nowrap">
             Get in Touch
           </Link>
         </div>
@@ -119,7 +119,7 @@ export default function Navbar() {
               ))}
               <Link 
                 to="/contact"
-                className="block w-full py-4 bg-brand-yellow text-dark-charcoal rounded-2xl text-center font-bold"
+                className="block w-full py-4 bg-brand-yellow text-dark-charcoal rounded-xl text-center text-sm font-bold tracking-wide shadow-lg shadow-brand-yellow/20"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Get in Touch
@@ -130,4 +130,4 @@ export default function Navbar() {
       </AnimatePresence>
     </nav>
   );
-}
+} 

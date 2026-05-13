@@ -1,6 +1,14 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Instagram, Twitter, Linkedin, Youtube, Facebook } from 'lucide-react';
+import { Instagram, Linkedin, Youtube, Facebook } from 'lucide-react';
+
+const XIcon = (props: any) => (
+  <img 
+    src="https://img.icons8.com/ios/50/FFFFFF/twitterx--v2.png" 
+    alt="X" 
+    className={props.className}
+  />
+);
 
 const NAV_COLS = [
   {
@@ -24,7 +32,7 @@ const NAV_COLS = [
 const SOCIALS = [
   { Icon: Instagram, label: 'Instagram' },
   { Icon: Facebook,  label: 'Facebook'  },
-  { Icon: Twitter,   label: 'X / Twitter' },
+  { Icon: XIcon,     label: 'X / Twitter' },
   { Icon: Linkedin,  label: 'LinkedIn'   },
   { Icon: Youtube,   label: 'YouTube'    },
 ];
@@ -40,11 +48,6 @@ export default function Footer() {
     >
       <div className="max-w-7xl mx-auto px-8 md:px-12 pt-16 pb-10">
 
-        {/*
-          Two-zone row:
-          LEFT  — 4 nav columns  (~58% width)
-          RIGHT — newsletter + socials (~42% width)
-        */}
         <div className="flex flex-col lg:flex-row gap-14 lg:gap-0 mb-12">
 
           {/* ── Left: 4 Nav Columns ─────────────────── */}
@@ -65,7 +68,7 @@ export default function Footer() {
                   {col.links.map((link) => (
                     <li key={link}>
                       <a
-                        href="#"
+                     href="#"
                         className="text-[14px] text-white/55 hover:text-white transition-colors duration-150 block"
                       >
                         {link}
