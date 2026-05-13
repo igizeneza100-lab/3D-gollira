@@ -2,23 +2,39 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import gizLogo from '../assets/partner_logoes/GIZ-GmbH Logo.png';
+import imbutoLogo from '../assets/partner_logoes/IMBUTO FOUNDATION LOGO PNG.png';
+import interpeaceLogo from '../assets/partner_logoes/Interpeace-2019.png';
+import logo2 from '../assets/partner_logoes/Logo-2.png';
+import logo from '../assets/partner_logoes/Logo.png';
+import narLogo from '../assets/partner_logoes/NAR LOGO FINAL.png';
+import unctLogo from '../assets/partner_logoes/New_UNCT_logo_vertical_transparent.png';
+import peacebuildingLogo from '../assets/partner_logoes/Peacebuilding Logo.png';
+import rebLogo from '../assets/partner_logoes/REB_Logo.png';
+import remcoLogo from '../assets/partner_logoes/REMCO-OG.png';
+import undpLogo from '../assets/partner_logoes/UNDP_logo.png';
+import unVolunteersLogo from '../assets/partner_logoes/Un-Volunteers-logo.jpg';
+import downloadLogo from '../assets/partner_logoes/download.png';
+import download1Logo from '../assets/partner_logoes/download_1.png';
+import startimesLogo from '../assets/partner_logoes/startimes-logo.jpg';
+import bg2 from '../assets/BG2.png';
 
 const logos = [
-  'GIZ-GmbH Logo.png',
-  'IMBUTO FOUNDATION LOGO PNG.png',
-  'Interpeace-2019.png',
-  'Logo-2.png',
-  'Logo.png',
-  'NAR LOGO FINAL.png',
-  'New_UNCT_logo_vertical_transparent.png',
-  'Peacebuilding Logo.png',
-  'REB_Logo.png',
-  'REMCO-OG.png',
-  'UNDP_logo.png',
-  'Un-Volunteers-logo.jpg',
-  'download.png',
-  'download_1.png',
-  'startimes-logo.jpg'
+  gizLogo,
+  imbutoLogo,
+  interpeaceLogo,
+  logo2,
+  logo,
+  narLogo,
+  unctLogo,
+  peacebuildingLogo,
+  rebLogo,
+  remcoLogo,
+  undpLogo,
+  unVolunteersLogo,
+  downloadLogo,
+  download1Logo,
+  startimesLogo
 ];
 
 export default function Partners() {
@@ -65,7 +81,7 @@ export default function Partners() {
       <div 
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{ 
-          backgroundImage: 'url(/src/assets/BG2.png)',
+          backgroundImage: `url(${bg2})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
@@ -104,9 +120,9 @@ export default function Partners() {
             className="partner-item aspect-video flex items-center justify-center p-8 border-r border-b border-black/5 bg-white cursor-pointer overflow-hidden"
           >
             <img 
-              src={`/src/assets/partner_logoes/${logo}`} 
+              src={logo} 
               alt="Partner Logo" 
-              className="max-h-full max-w-full object-contain pointer-events-noneee"
+              className="max-h-full max-w-full object-contain pointer-events-none"
             />
           </div>
         ))}
