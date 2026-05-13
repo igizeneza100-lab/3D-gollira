@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
 import { Target, Eye, Rocket } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import aboutCover from '../assets/aboutcover.png';
 
 const stats = [
   { label: 'Completed Projects', value: 100, suffix: '+', color: 'text-brand-teal' },
@@ -41,42 +42,7 @@ export default function About() {
       
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center text-dark-charcoal">
-          <div className="relative">
-            <div className="relative z-10 rounded-3xl overflow-hidden glass p-1">
-              <div className="aspect-square bg-gradient-to-tr from-brand-teal-dark to-brand-teal flex items-center justify-center overflow-hidden rounded-2xl relative group">
-                {/* Simulated Immersive Image/Visual */}
-                <div className="absolute inset-0 opacity-40 mix-blend-overlay bg-[url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop')] bg-cover bg-center group-hover:scale-110 transition-transform duration-700" />
-                <div className="relative z-10 flex flex-col items-center text-center p-12">
-                  <div className="w-20 h-20 bg-dark-charcoal rounded-3xl flex items-center justify-center mb-6 shadow-2xl">
-                    <Rocket className="w-10 h-10 text-brand-yellow" />
-                  </div>
-                  <h3 className="text-4xl font-display font-bold mb-4">Revolutionizing Impact</h3>
-                  <p className="text-white/70 max-w-md italic">"We aim to change the way consultancy and design services are approached."</p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Floating stats card */}
-            <motion.div 
-              initial={{ x: 50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              className="absolute -bottom-10 -right-6 md:right-10 glass-dark p-8 rounded-3xl shadow-2xl z-20 max-w-[280px]"
-            >
-              <div className="flex flex-col gap-6">
-                {stats.map((stat) => (
-                  <div key={stat.label}>
-                    <div className={`text-3xl font-display font-bold ${stat.color}`}>
-                      <Counter value={stat.value} />{stat.suffix}
-                    </div>
-                    <div className="text-[10px] uppercase tracking-widest font-bold opacity-40">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8 order-2 lg:order-1">
             <div>
               <motion.span 
                 initial={{ opacity: 0 }}
@@ -114,6 +80,38 @@ export default function About() {
                 </p>
               </div>
             </div>
+          </div>
+
+          <div className="relative order-1 lg:order-2 h-full">
+            <div className="relative z-10 rounded-3xl overflow-hidden glass p-1 h-full">
+              <div className="h-full min-h-[500px] lg:min-h-full bg-dark-charcoal flex items-center justify-center overflow-hidden rounded-2xl relative group">
+                {/* Local Visual */}
+                <img 
+                  src={aboutCover} 
+                  alt="About Gorilla 3D Studio" 
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                />
+              </div>
+            </div>
+            
+            {/* Floating stats card */}
+            <motion.div 
+              initial={{ x: 50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              className="absolute -bottom-10 -right-6 md:right-10 glass-dark p-8 rounded-3xl shadow-2xl z-20 max-w-[280px]"
+            >
+              <div className="flex flex-col gap-6">
+                {stats.map((stat) => (
+                  <div key={stat.label}>
+                    <div className={`text-3xl font-display font-bold ${stat.color}`}>
+                      <Counter value={stat.value} />{stat.suffix}
+                    </div>
+                    <div className="text-[10px] uppercase tracking-widest font-bold opacity-40 text-white">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>

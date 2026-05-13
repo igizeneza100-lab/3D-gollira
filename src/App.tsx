@@ -12,6 +12,7 @@ import SplashScreen from './components/SplashScreen';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Project from './pages/Project';
+import ServicesPage from './pages/Services';
 
 export default function App() {
   const [isLoaded, setIsLoaded] = useState(() => {
@@ -34,6 +35,7 @@ export default function App() {
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/services" element={<ServicesPage />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/projects" element={<Project />} />
               {/* Fallback path */}

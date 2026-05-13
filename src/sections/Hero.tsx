@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SplitType from 'split-type';
 import { cn } from '../lib/utils';
 import homeCover from '../assets/Home-cover.png';
+import heroVideo from '../assets/Herovideo.mp4';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,27 +27,36 @@ export default function Hero() {
       // Ensure elements are visible initially if JS fails or for debugging
       gsap.set('.hero-word, #subtext-content, .cta-btn, .meta-item', { opacity: 1, y: 0 });
 
-      tl.from('.hero-word', {
-        y: 100,
+      tl.from('.meta-item', {
         opacity: 0,
-        stagger: 0.1,
-        duration: 1.2,
-        ease: 'expo.out',
+        x: -50,
+        letterSpacing: '0.8em',
+        duration: 1.5,
+        ease: 'power4.out',
       })
-        .from('#subtext-content', {
-          y: 20,
+        .from('.hero-word', {
+          y: 100,
           opacity: 0,
-          duration: 0.8,
+          skewY: 7,
+          stagger: 0.15,
+          duration: 1.4,
+          ease: 'expo.out',
+        }, '-=1')
+        .from('#subtext-content', {
+          y: 40,
+          opacity: 0,
+          scale: 0.95,
+          duration: 1,
           ease: 'power3.out',
         }, '-=0.8')
         .from('.cta-btn', {
-          y: 20,
+          y: 30,
           opacity: 0,
-          stagger: 0.1,
-          duration: 0.6,
-          ease: 'power2.out',
+          stagger: 0.15,
+          duration: 0.8,
+          ease: 'back.out(1.7)',
         }, '-=0.6')
-        .from('.meta-item', {
+        .from('.meta-item-footer', {
           opacity: 0,
           y: 10,
           stagger: 0.1,
@@ -101,11 +111,13 @@ export default function Hero() {
     >
       {/* ─── Background Layer ─────────────────────────── */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 opacity-40">
-          <img
-            src={homeCover}
-            alt=""
-            aria-hidden="true"
+        <div className="absolute inset-0">
+          <video
+            src={heroVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
             className="w-full h-full object-cover"
           />
         </div>
@@ -136,19 +148,7 @@ export default function Hero() {
             />
           ))}
         </div>
-
-        {/* Vignette */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/40" />
       </div>
-
-      {/* ─── Main Content Grid ─────────────────────────── */}
-      {/*
-        Layout uses a 12-col CSS grid so every element snaps to the
-        same left edge. Content spans cols 2–8 on desktop, full on mobile.
-        Vertical rhythm is handled with gap-based flex rather than
-        arbitrary margin overrides.
-      */}
       <div
         className="
           relative z-10 h-full
@@ -162,53 +162,21 @@ export default function Hero() {
         {/* Content column */}
         <div
           className="
-            col-span-12 md:col-span-7
-            flex flex-col justify-center
+            col-span-12 md:col-start-3 md:col-span-8
+            flex flex-col justify-center items-center text-center
             gap-6
             pt-20 pb-28
           "
         >
-          {/* Eyebrow */}
-          <motion.span
-            initial={{ opacity: 0, letterSpacing: '0.5em' }}
-            animate={{ opacity: 0.6, letterSpacing: '0.2em' }}
-            transition={{ duration: 1.5, ease: 'easeOut' }}
-            className="
-              meta-item
-              text-brand-yellow text-[10px] sm:text-xs
-              font-bold uppercase tracking-[0.25em]
-              block
-            "
-          >
-            Pioneering the Creative Frontier
-          </motion.span>
-
-          {/* Headline */}
-          <h1
-            ref={textRef}
-            className="
-              font-display font-bold
-              text-[clamp(2.5rem,7vw,5rem)]
-              leading-[0.88] tracking-[-0.03em]
-              m-0 p-0
-            "
-          >
-            <div className="overflow-hidden">
-              <span className="hero-word block text-white">ALPHA POWERED</span>
-            </div>
-            <div className="overflow-hidden">
-              <span className="hero-word block text-brand-teal">DESIGN</span>
-            </div>
-          </h1>
-
           {/* Subtext */}
           <div
             id="subtext-content"
             ref={subTextRef}
             className="
-              max-w-[480px]
-              text-[clamp(0.875rem,1.5vw,1.0625rem)]
-              text-white/50
+              max-w-[600px]
+              text-[clamp(1rem,1.8vw,1.25rem)]
+              text-white
+              font-bold
               leading-relaxed
               font-sans
             "
@@ -219,7 +187,7 @@ export default function Hero() {
           </div>
 
           {/* CTAs */}
-          <div className="flex flex-row gap-3 flex-wrap">
+          <div className="flex flex-row gap-3 flex-wrap justify-center">
             <button
               className="
                 cta-btn

@@ -5,10 +5,10 @@ import { Menu, X, ChevronDown, Mail, Phone, MapPin, Instagram, Facebook, Linkedi
 import { cn } from '../lib/utils';
 
 const services = [
-  { name: 'Educational Support Activities', href: '#services' },
-  { name: 'Management Consultancy', href: '#services' },
-  { name: 'Specialized Design', href: '#services' },
-  { name: 'Research & Experimental Development', href: '#services' },
+  { name: 'Educational Support Activities', href: '/services' },
+  { name: 'Management Consultancy', href: '/services' },
+  { name: 'Specialized Design', href: '/services' },
+  { name: 'Research & Experimental Development', href: '/services' },
 ];
 
 export default function Navbar() {
@@ -67,13 +67,13 @@ export default function Navbar() {
                   className="absolute top-full left-0 mt-2 w-64 bg-dark-charcoal/95 backdrop-blur-xl rounded-xl border border-white/10 p-2 shadow-2xl"
                 >
                   {services.map((service) => (
-                    <a
+                    <Link
                       key={service.name}
-                      href={service.href}
+                      to={service.href}
                       className="block px-4 py-2.5 text-[10px] font-bold uppercase tracking-widest rounded-lg hover:bg-brand-yellow hover:text-dark-charcoal transition-all"
                     >
                       {service.name}
-                    </a>
+                    </Link>
                   ))}
                 </motion.div>
               )}
