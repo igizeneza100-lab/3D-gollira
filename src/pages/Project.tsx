@@ -3,6 +3,7 @@ import { useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { ExternalLink, ArrowLeft, Heart, Share2, Tag, Calendar, MapPin, Target, Sparkles, Layout, Database, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import bg4 from '../assets/BG2.png';
 
 // Import project images (reusing the SEO descriptive names)
 import edTechImg from '../assets/project/educational-support-activities-gorilla-3d.png';
@@ -216,14 +217,17 @@ export default function Project() {
       <section className="mt-32 px-6 md:px-24">
         <div className="max-w-7xl mx-auto">
           <div className="bg-brand-teal rounded-[60px] p-12 md:p-24 text-white text-center flex flex-col items-center relative overflow-hidden group">
-            <div className="absolute inset-0 bg-brand-teal-dark opacity-0 group-hover:opacity-20 transition-opacity" />
-            <Sparkles className="w-16 h-16 text-brand-yellow mb-8 animate-pulse" />
-            <h2 className="text-4xl md:text-7xl font-display font-bold mb-8">HAVE A VISION FOR <br />THE NEXT LEGACY?</h2>
-            <Link to="/contact" className="px-12 py-5 bg-brand-yellow text-dark-charcoal font-bold rounded-full hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-black/20 text-lg">
+            <img 
+              src={bg4} 
+              alt="Background" 
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-8 relative z-10">HAVE A VISION FOR <br />THE NEXT LEGACY?</h2>
+            <Link to="/contact" className="px-12 py-5 bg-brand-yellow text-dark-charcoal font-bold rounded-full hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-black/20 text-lg relative z-10">
               Let's Build It
             </Link>
             
-            <div className="mt-16 flex flex-wrap justify-center gap-12 text-white/60">
+            <div className="mt-16 flex flex-wrap justify-center gap-12 text-white font-bold relative z-10">
                <div className="flex items-center gap-3">
                  <Calendar className="w-5 h-5" /> <span>Next Intake: June 2026</span>
                </div>

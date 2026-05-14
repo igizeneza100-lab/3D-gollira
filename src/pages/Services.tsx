@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import heroVideo from '../assets/Herovideo.mp4';
 import bg3 from '../assets/BG3.png';
@@ -54,6 +55,7 @@ const detailedServices = [
 
 export default function ServicesPage() {
   const heroRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -151,7 +153,10 @@ export default function ServicesPage() {
                     ))}
                   </div>
 
-                  <button className="flex items-center gap-4 group pt-8">
+                  <button 
+                    onClick={() => navigate('/contact')}
+                    className="flex items-center gap-4 group pt-8"
+                  >
                     <div className="w-12 h-12 rounded-full border border-dark-charcoal/20 flex items-center justify-center group-hover:bg-brand-teal group-hover:border-brand-teal transition-all">
                       <ArrowRight className="w-5 h-5 group-hover:-rotate-45 transition-transform" />
                     </div>
@@ -195,7 +200,10 @@ export default function ServicesPage() {
             <p className="text-dark-charcoal/70 text-lg max-w-xl mx-auto font-bold">
               Join the gorilla studio digital safari. Let's build something that dominates the competition.
             </p>
-            <button className="px-10 py-5 bg-dark-charcoal text-white font-bold rounded-2xl hover:scale-105 hover:bg-black transition-all shadow-2xl">
+            <button 
+              onClick={() => navigate('/contact')}
+              className="px-10 py-5 bg-dark-charcoal text-white font-bold rounded-2xl hover:scale-105 hover:bg-black transition-all shadow-2xl"
+            >
               START YOUR PROJECT
             </button>
           </div>
@@ -204,4 +212,3 @@ export default function ServicesPage() {
     </div>
   );
 }
- 
