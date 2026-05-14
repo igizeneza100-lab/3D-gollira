@@ -35,9 +35,9 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between h-20 md:h-24">
         <a href="/" className="flex items-center group transition-colors">
-          <div className="w-32 h-32 md:w-40 md:h-40 flex items-center justify-center transform group-hover:scale-105 transition-transform">
+          <div className="w-20 h-20 md:w-28 md:h-28 flex items-center justify-center transform group-hover:scale-105 transition-transform">
             <img 
-              src={isScrolled ? "/logoheader.png" : "/logo white.png"} 
+              src={isScrolled ? "/logowhite.png" : "/logoheader.png"} 
               alt="Gorilla 3D" 
               className="w-full h-full object-contain transition-all duration-500"
             />
@@ -46,15 +46,15 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 text-white">
-          <Link to="/" className="text-xs font-bold uppercase tracking-widest hover:text-brand-yellow transition-colors">Home</Link>
-          <a href="#about" className="text-xs font-bold uppercase tracking-widest hover:text-brand-yellow transition-colors">About</a>
+          <Link to="/" className="text-base font-bold capitalize hover:text-brand-yellow transition-colors">Home</Link>
+          <a href="/#about" className="text-base font-bold capitalize hover:text-brand-yellow transition-colors">About</a>
           
           <div 
             className="relative group"
             onMouseEnter={() => setIsServicesOpen(true)}
             onMouseLeave={() => setIsServicesOpen(false)}
           >
-            <button className="flex items-center gap-1 text-xs font-bold uppercase tracking-widest hover:text-brand-yellow transition-colors">
+            <button className="flex items-center gap-1 text-base font-bold capitalize hover:text-brand-yellow transition-colors">
               Services <ChevronDown className="w-3 h-3" />
             </button>
             
@@ -70,7 +70,7 @@ export default function Navbar() {
                     <Link
                       key={service.name}
                       to={service.href}
-                      className="block px-4 py-2.5 text-[10px] font-bold uppercase tracking-widest rounded-lg hover:bg-brand-yellow hover:text-dark-charcoal transition-all"
+                      className="block px-4 py-2.5 text-sm font-bold capitalize rounded-lg hover:bg-brand-yellow hover:text-dark-charcoal transition-all"
                     >
                       {service.name}
                     </Link>
@@ -80,8 +80,8 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
           
-          <a href="#portfolio" className="text-xs font-bold uppercase tracking-widest hover:text-brand-yellow transition-colors">Portfolio</a>
-          <a href="#team" className="text-xs font-bold uppercase tracking-widest hover:text-brand-yellow transition-colors">Our Team</a>
+          <a href="/#portfolio" className="text-base font-bold capitalize hover:text-brand-yellow transition-colors">Portfolio</a>
+          <a href="/#team" className="text-base font-bold capitalize hover:text-brand-yellow transition-colors">Our team</a>
           
           <Link to="/contact" className="ml-4 px-7 py-3.5 bg-brand-yellow text-dark-charcoal rounded-xl text-sm font-bold tracking-wide hover:scale-[1.03] active:scale-[0.97] transition-transform duration-150 shadow-lg shadow-brand-yellow/20 whitespace-nowrap">
             Get in Touch
@@ -107,11 +107,11 @@ export default function Navbar() {
             className="md:hidden bg-dark-charcoal border-b border-white/10 overflow-hidden"
           >
             <div className="px-6 py-8 space-y-6">
-              {['Home', 'About', 'Portfolio', 'Our Team'].map((item) => (
+              {['Home', 'About', 'Portfolio', 'Our team'].map((item) => (
                 <a
                   key={item}
-                  href={`#${item.toLowerCase().replace(' ', '')}`}
-                  className="block text-xl font-display font-bold text-white hover:text-brand-yellow transition-colors"
+                  href={item === 'Home' ? '/' : `/#${item.toLowerCase().replace(' ', '')}`}
+                  className="block text-xl font-display font-bold text-white hover:text-brand-yellow transition-colors capitalize"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item}

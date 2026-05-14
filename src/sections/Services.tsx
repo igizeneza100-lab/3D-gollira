@@ -1,24 +1,33 @@
 import { motion } from 'motion/react';
+import bg2 from '../assets/BG2.png';
+import bg3 from '../assets/BG3.png';
+import bg4 from '../assets/BG4.png';
+import bg5 from '../assets/BG5.png';
+
 const services = [
   {
     title: 'Educational Support Activities',
     description: 'Empowering institutions with innovative curriculum development, e-learning solutions, and instructional design tailored for the modern age.',
     color: 'from-brand-teal to-brand-teal-dark',
+    image: bg2,
   },
   {
     title: 'Management Consultancy',
     description: 'Strategic guidance and practical solutions derived from deep research to improve operational performance and organizational effectiveness.',
     color: 'from-brand-yellow to-orange-500',
+    image: bg3,
   },
   {
     title: 'Specialized Design',
     description: 'Harnessing the power of 3D visualization, VR, and multimedia design to create captivating, immersive experiences that bring ideas to life.',
     color: 'from-brand-teal-mid to-brand-teal',
+    image: bg4,
   },
   {
     title: 'Research & Development',
     description: 'Advancing human understanding through innovative research in social sciences and humanities, tackling complex cultural challenges head-on.',
     color: 'from-white/20 to-white/5',
+    image: bg5,
   }
 ];
 export default function Services() {
@@ -51,14 +60,14 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
               viewport={{ once: true }}
-              className="group relative h-[280px] rounded-3xl overflow-hidden cursor-pointer border border-white/10"
+              className="group relative min-h-[320px] md:min-h-[280px] lg:min-h-[320px] rounded-3xl overflow-hidden cursor-pointer border border-white/10 flex flex-col"
             >
               {/* Card Background Image */}
               <div 
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 opacity-30"
-                style={{ backgroundImage: 'url(/src/assets/BG5.png)' }}
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 opacity-70"
+                style={{ backgroundImage: `url(${service.image})` }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-charcoal via-dark-charcoal/80 to-dark-charcoal/40" />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark-charcoal/90 via-dark-charcoal/60 to-transparent" />
               
               <div className="relative h-full p-8 flex flex-col justify-end gap-3 overflow-hidden z-10">
                 <h3 className="text-2xl font-bold font-display leading-tight text-white">

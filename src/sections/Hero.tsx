@@ -1,11 +1,21 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Facebook, Instagram, Linkedin, Phone, MapPin, Mail } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { cn } from '../lib/utils';
 import heroVideo from '../assets/Herovideo.mp4';
 
+const TikTokIcon = (props: any) => (
+  <img 
+    src="https://img.icons8.com/ios-filled/50/FFFFFF/tiktok--v1.png" 
+    alt="TikTok" 
+    className={props.className}
+  />
+);
+
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -86,9 +96,10 @@ export default function Hero() {
         className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 flex-col gap-6 z-20"
       >
         {[
-          { icon: Facebook, href: '#' },
-          { icon: Linkedin, href: '#' },
-          { icon: Instagram, href: '#' },
+          { icon: Facebook, href: 'https://www.facebook.com/gorilla3dstudio' },
+          { icon: Linkedin, href: 'https://www.linkedin.com/company/gorilla3dstudio' },
+          { icon: Instagram, href: 'https://www.instagram.com/gorilla3dstudio?igsh=MXUzaTN2eWVpNXVleg%3D%3D&utm_source=qr' },
+          { icon: TikTokIcon, href: 'https://www.tiktok.com/@kezahub?lang=en' },
           { icon: Phone, href: 'tel:+250783723705' }
         ].map((item, i) => (
           <a
@@ -186,6 +197,7 @@ export default function Hero() {
           {/* CTAs */}
           <div className="flex flex-row gap-3 flex-wrap justify-center">
             <motion.button
+              onClick={() => navigate('/projects')}
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: [0.175, 0.885, 0.32, 1.275], delay: 1 }}
@@ -203,6 +215,7 @@ export default function Hero() {
               Explore Our World
             </motion.button>
             <motion.button
+              onClick={() => navigate('/services')}
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: [0.175, 0.885, 0.32, 1.275], delay: 1.15 }}

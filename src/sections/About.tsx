@@ -91,6 +91,28 @@ export default function About() {
                   alt="About Gorilla 3D Studio" 
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                 />
+                
+                {/* Animated Marketing Word Overlay */}
+                <div className="absolute inset-0 bg-dark-charcoal/30 group-hover:bg-dark-charcoal/10 transition-colors duration-700 z-0" />
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className="absolute z-10 pointer-events-none flex flex-col items-center justify-center"
+                >
+                  <motion.div 
+                    animate={{ scale: [1, 1.05, 1], opacity: [0.8, 1, 0.8] }} 
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                    className="flex flex-col items-center justify-center text-center"
+                  >
+                    <h3 className="text-5xl md:text-7xl font-display font-bold text-white tracking-widest lowercase drop-shadow-[0_5px_15px_rgba(0,0,0,0.6)]">
+                      innovate.
+                    </h3>
+                    <p className="mt-4 text-white/90 text-sm md:text-base max-w-[80%] font-medium drop-shadow-md">
+                      Pioneering the future of design and research.
+                    </p>
+                  </motion.div>
+                </motion.div>
               </div>
             </div>
             

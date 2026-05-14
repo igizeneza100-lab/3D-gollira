@@ -11,31 +11,31 @@ const projects = [
     title: 'EdTech Ecosystem',
     category: 'Educational Support',
     image: edTechImg,
-    size: 'col-span-2 row-span-2'
+    size: 'md:col-span-2 md:row-span-2 min-h-[300px] md:min-h-0'
   },
   {
     title: 'Urban Design Visualization',
     category: 'Specialized Design',
     image: urbanImg,
-    size: 'col-span-1 row-span-1'
+    size: 'md:col-span-1 md:row-span-1 min-h-[300px] md:min-h-0'
   },
   {
     title: 'Consultancy Insights',
     category: 'Management',
     image: consultancyImg,
-    size: 'col-span-1 row-span-2'
+    size: 'md:col-span-1 md:row-span-2 min-h-[300px] md:min-h-0'
   },
   {
     title: 'Social Research Lab',
     category: 'R&D',
     image: researchImg,
-    size: 'col-span-1 row-span-1'
+    size: 'md:col-span-1 md:row-span-1 min-h-[300px] md:min-h-0'
   },
   {
     title: 'Digital Learning Portal',
     category: 'Educational Support',
     image: digitalLearningImg,
-    size: 'col-span-2 row-span-1'
+    size: 'md:col-span-2 md:row-span-1 min-h-[300px] md:min-h-0'
   }
 ];
 
@@ -63,7 +63,7 @@ export default function Portfolio() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 grid-rows-3 gap-6 h-[1200px] md:h-[800px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 md:grid-rows-3 gap-6 md:h-[800px]">
           {projects.map((project, index) => (
             <motion.div
               key={index}

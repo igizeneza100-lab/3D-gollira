@@ -10,6 +10,14 @@ const XIcon = (props: any) => (
   />
 );
 
+const TikTokIcon = (props: any) => (
+  <img 
+    src="https://img.icons8.com/ios-filled/50/FFFFFF/tiktok--v1.png" 
+    alt="TikTok" 
+    className={props.className}
+  />
+);
+
 const NAV_COLS = [
   {
     heading: 'Navigate',
@@ -30,11 +38,12 @@ const NAV_COLS = [
 ];
 
 const SOCIALS = [
-  { Icon: Instagram, label: 'Instagram' },
-  { Icon: Facebook,  label: 'Facebook'  },
-  { Icon: XIcon,     label: 'X / Twitter' },
-  { Icon: Linkedin,  label: 'LinkedIn'   },
-  { Icon: Youtube,   label: 'YouTube'    },
+  { Icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/gorilla3dstudio?igsh=MXUzaTN2eWVpNXVleg%3D%3D&utm_source=qr' },
+  { Icon: Facebook,  label: 'Facebook',  href: '#'  },
+  { Icon: XIcon,     label: 'X / Twitter', href: 'https://x.com/gorilla3dstudio' },
+  { Icon: Linkedin,  label: 'LinkedIn',   href: '#'   },
+  { Icon: Youtube,   label: 'YouTube',    href: 'https://youtube.com/@kezahub?si=ntphWCO71X8RA-rM'    },
+  { Icon: TikTokIcon, label: 'TikTok',     href: 'https://www.tiktok.com/@kezahub?lang=en' },
 ];
 
 export default function Footer() {
@@ -127,11 +136,13 @@ export default function Footer() {
 
             {/* Social Icons */}
             <div className="flex gap-5 items-center">
-              {SOCIALS.map(({ Icon, label }) => (
+              {SOCIALS.map(({ Icon, label, href }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
                   aria-label={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-white/60 hover:text-white transition-colors duration-150"
                 >
                   <Icon className="w-6 h-6" strokeWidth={1.8} />

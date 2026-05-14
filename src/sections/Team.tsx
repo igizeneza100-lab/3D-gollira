@@ -126,27 +126,27 @@ export default function Team() {
   const [selectedMember, setSelectedMember] = useState<typeof team[0] | null>(null);
 
   return (
-    <section id="team" className="py-24 px-6 bg-main-bg relative">
+    <section id="team" className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-main-bg relative">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-4 md:gap-6">
           <div>
             <motion.span 
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              className="text-brand-teal font-bold uppercase tracking-widest text-sm"
+              className="text-brand-teal font-bold uppercase tracking-widest text-xs sm:text-sm"
             >
               Meet Our Team
             </motion.span>
-            <h2 className="text-4xl md:text-6xl font-display font-bold mt-4 text-dark-charcoal uppercase leading-[0.9]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mt-3 md:mt-4 text-dark-charcoal uppercase leading-[0.9]">
               THE MINDS BEHIND <span className="text-brand-teal">THE VISION</span>
             </h2>
           </div>
-          <p className="text-dark-charcoal/40 text-sm max-w-sm md:text-right font-medium">
+          <p className="text-dark-charcoal/40 text-xs sm:text-sm max-w-sm md:text-right font-medium">
             A collective of brilliant creatives and technical experts dedicated to bringing extraordinary ideas to life.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 mt-8 md:mt-12">
           {team.map((member, index) => (
             <motion.div
               key={index}
@@ -157,18 +157,18 @@ export default function Team() {
               className="group relative cursor-pointer"
               onClick={() => setSelectedMember(member)}
             >
-              <div className="relative aspect-[3/4] overflow-hidden rounded-[40px] shadow-2xl mb-6">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-3xl sm:rounded-[40px] shadow-2xl mb-4 sm:mb-6">
                 <img 
                   src={member.image} 
                   alt={member.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-charcoal/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
-                  <div className="flex gap-4">
-                    <button className="w-10 h-10 rounded-full bg-brand-yellow text-dark-charcoal flex items-center justify-center hover:scale-110 transition-transform">
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-charcoal/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6 sm:p-8">
+                  <div className="flex gap-3 sm:gap-4">
+                    <button className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-brand-yellow text-dark-charcoal flex items-center justify-center hover:scale-110 transition-transform">
                       <FileText className="w-4 h-4" />
                     </button>
-                    <div className="w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center hover:scale-110 transition-transform">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-brand-teal text-white flex items-center justify-center hover:scale-110 transition-transform">
                       <Linkedin className="w-4 h-4" />
                     </div>
                   </div>
@@ -176,8 +176,8 @@ export default function Team() {
               </div>
               
               <div className="text-center">
-                <h3 className="text-2xl font-display font-bold text-dark-charcoal mb-1">{member.name}</h3>
-                <p className="text-brand-teal font-bold text-sm uppercase tracking-wider mb-4">{member.role}</p>
+                <h3 className="text-xl sm:text-2xl font-display font-bold text-dark-charcoal mb-1">{member.name}</h3>
+                <p className="text-brand-teal font-bold text-xs sm:text-sm uppercase tracking-wider mb-4">{member.role}</p>
               </div>
             </motion.div>
           ))}
@@ -200,7 +200,7 @@ export default function Team() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl z-50 overflow-y-auto p-8"
+              className="fixed right-0 top-0 h-full w-full sm:max-w-md bg-white shadow-2xl z-50 overflow-y-auto p-6 sm:p-8"
             >
               <button 
                 onClick={() => setSelectedMember(null)}
@@ -209,19 +209,19 @@ export default function Team() {
                 <X className="w-6 h-6 text-dark-charcoal" />
               </button>
 
-              <div className="mt-12 space-y-8">
-                <div className="flex flex-col items-center text-center gap-4">
+              <div className="mt-12 space-y-6 sm:space-y-8">
+                <div className="flex flex-col items-center text-center gap-3 sm:gap-4">
                   <img 
                     src={selectedMember.image} 
                     alt={selectedMember.name}
-                    className="w-32 h-32 rounded-full object-cover border-4 border-brand-teal"
+                    className="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-brand-teal"
                   />
                   <div>
-                    <h2 className="text-3xl font-display font-bold text-dark-charcoal">{selectedMember.name}</h2>
-                    <p className="text-brand-teal font-bold uppercase tracking-wider">{selectedMember.role}</p>
+                    <h2 className="text-2xl sm:text-3xl font-display font-bold text-dark-charcoal">{selectedMember.name}</h2>
+                    <p className="text-brand-teal font-bold uppercase tracking-wider text-sm">{selectedMember.role}</p>
                   </div>
                   
-                  <div className="flex gap-4 mt-2">
+                  <div className="flex gap-3 sm:gap-4 mt-2">
                     <a href={selectedMember.socials.linkedin} className="p-2 rounded-full bg-gray-100 hover:bg-brand-teal hover:text-white transition-all">
                       <Linkedin className="w-5 h-5" />
                     </a>
@@ -234,9 +234,9 @@ export default function Team() {
                   </div>
                 </div>
 
-                <div className="space-y-4">
-                  <h3 className="text-xl font-bold flex items-center gap-2 border-b pb-2">
-                    <GraduationCap className="text-brand-teal" /> Education
+                <div className="space-y-3 sm:space-y-4">
+                  <h3 className="text-lg sm:text-xl font-bold flex items-center gap-2 border-b pb-2">
+                    <GraduationCap className="text-brand-teal w-5 h-5" /> Education
                   </h3>
                   <ul className="space-y-2">
                     {selectedMember.cv?.education.map((item, i) => (
@@ -245,9 +245,9 @@ export default function Team() {
                   </ul>
                 </div>
 
-                <div className="space-y-4">
-                  <h3 className="text-xl font-bold flex items-center gap-2 border-b pb-2">
-                    <Award className="text-brand-teal" /> Core Expertise
+                <div className="space-y-3 sm:space-y-4">
+                  <h3 className="text-lg sm:text-xl font-bold flex items-center gap-2 border-b pb-2">
+                    <Award className="text-brand-teal w-5 h-5" /> Core Expertise
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedMember.cv?.skills.map((skill, i) => (
@@ -258,9 +258,9 @@ export default function Team() {
                   </div>
                 </div>
 
-                <div className="pt-8 border-t">
-                  <h3 className="text-lg font-bold mb-3">Professional Bio</h3>
-                  <p className="text-dark-charcoal/80 leading-relaxed italic">
+                <div className="pt-6 sm:pt-8 border-t">
+                  <h3 className="text-base sm:text-lg font-bold mb-3">Professional Bio</h3>
+                  <p className="text-sm sm:text-base text-dark-charcoal/80 leading-relaxed italic">
                     "{selectedMember.bio}"
                   </p>
                 </div>

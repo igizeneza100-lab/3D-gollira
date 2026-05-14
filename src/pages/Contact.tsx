@@ -2,6 +2,7 @@ import { FormEvent, useEffect, useRef, useState } from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
+import bg3 from '../assets/BG3.png';
 
 type ContactFormState = {
   name: string;
@@ -80,9 +81,9 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <section ref={heroRef} className="relative h-[420px] md:h-[480px] overflow-hidden bg-[#1E5F59]">
+      <section ref={heroRef} className="relative h-[500px] md:h-[480px] overflow-hidden bg-[#1E5F59]">
         <img
-          src="/contactimg.jpg"
+          src={bg3}
           alt="Contact Gorilla 3D Studio"
           className="hero-bg absolute inset-0 h-full w-full object-cover"
         />

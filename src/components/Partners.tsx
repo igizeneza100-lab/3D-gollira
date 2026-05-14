@@ -113,16 +113,16 @@ export default function Partners() {
         <div className="w-full h-px bg-black/10 mt-8" />
       </div>
 
-      <div ref={containerRef} className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border-l border-t border-black/5 relative z-10 bg-white/50 backdrop-blur-sm">
+      <div ref={containerRef} className="max-w-7xl mx-auto px-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-0 border-l border-t border-black/5 relative z-10 bg-white/50 backdrop-blur-sm">
         {logos.map((logo, index) => (
           <div 
             key={index} 
-            className="partner-item aspect-video flex items-center justify-center p-8 border-r border-b border-black/5 bg-white cursor-pointer overflow-hidden"
+            className="partner-item aspect-square sm:aspect-video flex items-center justify-center p-4 sm:p-6 md:p-8 border-r border-b border-black/5 bg-white cursor-pointer overflow-hidden"
           >
             <img 
               src={logo} 
               alt="Partner Logo" 
-              className="max-h-full max-w-full object-contain pointer-events-none"
+              className="max-h-full max-w-full w-full h-full object-contain pointer-events-none"
             />
           </div>
         ))}

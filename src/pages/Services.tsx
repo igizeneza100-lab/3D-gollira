@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion';
-import { BookOpen, BarChart3, Palette, Microscope, ArrowRight, CheckCircle2 } from 'lucide-react';
-import bg5 from '../assets/BG5.png';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import heroVideo from '../assets/Herovideo.mp4';
+import bg3 from '../assets/BG3.png';
+import bg4 from '../assets/BG4.png';
+import bg5 from '../assets/BG5.png';
+import bg2 from '../assets/BG2.png';
 
 const detailedServices = [
   {
@@ -13,8 +16,7 @@ const detailedServices = [
     description: 'Empowering institutions with innovative curriculum development, e-learning solutions, and instructional design tailored for the modern age.',
     longDescription: 'We specialize in creating immersive learning experiences that bridge the gap between traditional education and digital innovation. Our team develops custom curriculum frameworks, interactive e-learning modules, and specialized training programs designed to foster critical thinking and practical skills.',
     features: ['Curriculum Development', 'E-Learning Platforms', 'Teacher Training', 'Instructional Design'],
-    icon: BookOpen,
-    image: "/api/placeholder/800/600",
+    image: bg2,
     color: 'text-brand-teal',
     bg: 'bg-brand-teal/10'
   },
@@ -24,7 +26,7 @@ const detailedServices = [
     description: 'Strategic guidance and practical solutions derived from deep research to improve operational performance and organizational effectiveness.',
     longDescription: 'Our consultancy approach is rooted in data-driven insights and human-centered design. We work closely with leadership teams to identify bottlenecks, optimize workflows, and implement scalable strategies that drive sustainable growth in a rapidly changing market landscape.',
     features: ['Operational Optimization', 'Strategic Planning', 'Change Management', 'Performance Analysis'],
-    icon: BarChart3,
+    image: bg3,
     color: 'text-brand-yellow',
     bg: 'bg-brand-yellow/10'
   },
@@ -34,7 +36,7 @@ const detailedServices = [
     description: 'Harnessing the power of 3D visualization, VR, and multimedia design to create captivating, immersive experiences that bring ideas to life.',
     longDescription: 'From high-fidelity 3D modeling to fully interactive Virtual Reality environments, we push the boundaries of what is possible in digital design. We create visuals that not only look stunning but serve as functional tools for storytelling, architecture, and marketing.',
     features: ['3D Modeling & Animation', 'Virtual Reality (VR)', 'Immersive Multimedia', 'Visual Brand Identity'],
-    icon: Palette,
+    image: bg4,
     color: 'text-brand-teal-mid',
     bg: 'bg-brand-teal-mid/10'
   },
@@ -44,7 +46,7 @@ const detailedServices = [
     description: 'Advancing human understanding through innovative research in social sciences and humanities, tackling complex cultural challenges head-on.',
     longDescription: 'Our R&D division focuses on solving complex sociotechnical problems through rigorous academic research and creative experimentation. We specialize in anthropology, sociology, and digital humanities to provide context that informs better design and policy choices.',
     features: ['Socio-cultural Research', 'Data Interpretation', 'Technical Whiteboard', 'Innovation Lab'],
-    icon: Microscope,
+    image: bg5,
     color: 'text-white',
     bg: 'bg-white/10'
   },
@@ -159,11 +161,15 @@ export default function ServicesPage() {
                   </button>
                 </div>
 
-                {/* Decorative Icon Side */}
+                {/* Decorative Image Side */}
                 <div className="flex-1 relative w-full aspect-video lg:aspect-square flex items-center justify-center">
                   <div className={cn("absolute inset-0 rounded-[4rem] blur-[80px] opacity-10", service.bg)} />
-                  <div className="relative z-10 w-full h-full border border-dark-charcoal/5 rounded-[3rem] bg-white shadow-xl flex items-center justify-center group overflow-hidden">
-                    <service.icon className={cn("w-32 h-32 md:w-48 md:h-48 opacity-10 group-hover:opacity-100 group-hover:scale-110 group-hover:rotate-6 transition-all duration-700", service.color)} />
+                  <div className="relative z-10 w-full h-full rounded-[3rem] shadow-xl flex items-center justify-center group overflow-hidden bg-dark-charcoal">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" 
+                    />
                     
                     {/* Floating accents */}
                     <div className={cn("absolute top-12 left-12 w-3 h-3 rounded-full", service.bg.replace('/10', ''))} />
