@@ -2,18 +2,19 @@ import { useState} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Linkedin, Twitter, Mail, X, FileText, Award, GraduationCap, Instagram } from 'lucide-react';
 
-import cyusaImg from '../assets/Teams/Cyusa-Benjamin-Profile-Picture.png';
+import cyusaImg from '../assets/Teams/cyusa1.jpg';
 import latimImg from '../assets/Teams/Latim.png';
-import earlImg from '../assets/Teams/Earl Daniel Ssekyondwa.jpg';
+import earlImg from '../assets/Teams/Daniel.jpeg';
 import munezeroImg from '../assets/Teams/MUNEZERO.jpeg';
 import ronaldImg from '../assets/Teams/Ronald Sabiiti.jpg';
-import uwaseImg from '../assets/Teams/Constantin Uwase.jpg.jpeg';
+import uwaseImg from '../assets/Teams/Constantin Uwase.jpg';
 import philippeImg from '../assets/Teams/Philippe Nkwakuzi.jpg';
-import brunoImg from '../assets/Teams/Bruno IHIRWE.jpg';
+import brunoImg from '../assets/Teams/Bruno.jpg';
 import bahiziImg from '../assets/Teams/Bahizi-David-Blair-Profile-Picture.png';
 import alainImg from '../assets/Teams/alain niganze.jpg';
 
 const team = [
+  // Top row (left -> right): Cyusa, Earl, Ronald, Philippe, Bahizi
   {
     name: 'Cyusa Benjamin',
     role: 'Founder & Managing Director',
@@ -28,22 +29,6 @@ const team = [
       education: ['MBA in Business Administration', 'BA in Management'],
       experience: ['Founder & CEO', 'Strategic Business Leader'],
       skills: ['Leadership', 'Strategic Planning', 'Business Development']
-    }
-  },
-  {
-    name: 'Lawrance Latim Wathum',
-    role: 'Creative Design & Visual Communications Specialist',
-    image: latimImg,
-    bio: 'Creating impactful visual identities and communication strategies for diverse brands.',
-    socials: {
-      linkedin: '#',
-      twitter: '#',
-      instagram: '#'
-    },
-    cv: {
-      education: ['BSc in Graphic Design', 'Visual Communications'],
-      experience: ['Creative Director', 'Visual Communications Lead'],
-      skills: ['Adobe Suite', 'Brand Identity', 'Visual Strategy']
     }
   },
   {
@@ -63,22 +48,6 @@ const team = [
     }
   },
   {
-    name: 'Munezero Emmanuel',
-    role: 'Videographer & Video Production Specialist',
-    image: munezeroImg,
-    bio: 'Capturing compelling visual stories through high-quality video production.',
-    socials: {
-      linkedin: '#',
-      twitter: '#',
-      instagram: '#'
-    },
-    cv: {
-      education: ['Diploma in Film Production', 'Cinematography Workshop'],
-      experience: ['Event Videographer', 'Commercial Film Maker'],
-      skills: ['Cinematography', 'Lighting', 'Video Production']
-    }
-  },
-  {
     name: 'Ronald Sabiiti',
     role: 'Operations & Business Development Manager',
     image: ronaldImg,
@@ -92,22 +61,6 @@ const team = [
       education: ['MBA in Operations Management', 'Business Development Certification'],
       experience: ['Operations Manager', 'Business Development Lead'],
       skills: ['Operations Management', 'Business Strategy', 'Process Optimization']
-    }
-  },
-  {
-    name: 'UWASE Constantin',
-    role: 'Photographer & Visual Storytelling Specialist',
-    image: uwaseImg,
-    bio: 'Professional photographer with an eye for detail and stunning visual composition.',
-    socials: {
-      linkedin: '#',
-      twitter: '#',
-      instagram: '#'
-    },
-    cv: {
-      education: ['BA in Photography', 'Visual Arts Diploma'],
-      experience: ['Commercial Photographer', 'Portrait Specialist'],
-      skills: ['Studio Photography', 'Image Processing', 'Visual Composition']
     }
   },
   {
@@ -127,22 +80,6 @@ const team = [
     }
   },
   {
-    name: 'IHIRWE Bruno',
-    role: 'Senior Graphic & Brand Designer',
-    image: brunoImg,
-    bio: 'Crafting distinctive brand identities and visual experiences that resonate.',
-    socials: {
-      linkedin: '#',
-      twitter: '#',
-      instagram: '#'
-    },
-    cv: {
-      education: ['BA in Graphic Design', 'Brand Design Certification'],
-      experience: ['Senior Brand Designer', 'Creative Lead'],
-      skills: ['Brand Identity', 'Graphic Design', 'Visual Systems']
-    }
-  },
-  {
     name: 'Bahizi David Blair',
     role: 'IT Systems & Technology Specialist',
     image: bahiziImg,
@@ -156,6 +93,72 @@ const team = [
       education: ['BSc in Software Engineering', 'Certified Cloud Architect'],
       experience: ['IT Systems Manager', 'Technology Consultant'],
       skills: ['System Architecture', 'Cloud Infrastructure', 'IT Management']
+    }
+  },
+
+  // Bottom row (left -> right): Lawrance, Munezero, UWASE, IHIRWE, Niganze
+  {
+    name: 'Lawrance Latim Wathum',
+    role: 'Creative Design & Visual Communications Specialist',
+    image: latimImg,
+    bio: 'Creating impactful visual identities and communication strategies for diverse brands.',
+    socials: {
+      linkedin: '#',
+      twitter: '#',
+      instagram: '#'
+    },
+    cv: {
+      education: ['BSc in Graphic Design', 'Visual Communications'],
+      experience: ['Creative Director', 'Visual Communications Lead'],
+      skills: ['Adobe Suite', 'Brand Identity', 'Visual Strategy']
+    }
+  },
+  {
+    name: 'Munezero Emmanuel',
+    role: 'Videographer & Video Production Specialist',
+    image: munezeroImg,
+    bio: 'Capturing compelling visual stories through high-quality video production.',
+    socials: {
+      linkedin: '#',
+      twitter: '#',
+      instagram: '#'
+    },
+    cv: {
+      education: ['Diploma in Film Production', 'Cinematography Workshop'],
+      experience: ['Event Videographer', 'Commercial Film Maker'],
+      skills: ['Cinematography', 'Lighting', 'Video Production']
+    }
+  },
+  {
+    name: 'UWASE Constantin',
+    role: 'Photographer & Visual Storytelling Specialist',
+    image: uwaseImg,
+    bio: 'Professional photographer with an eye for detail and stunning visual composition.',
+    socials: {
+      linkedin: '#',
+      twitter: '#',
+      instagram: '#'
+    },
+    cv: {
+      education: ['BA in Photography', 'Visual Arts Diploma'],
+      experience: ['Commercial Photographer', 'Portrait Specialist'],
+      skills: ['Studio Photography', 'Image Processing', 'Visual Composition']
+    }
+  },
+  {
+    name: 'IHIRWE Bruno',
+    role: 'Senior Graphic & Brand Designer',
+    image: brunoImg,
+    bio: 'Crafting distinctive brand identities and visual experiences that resonate.',
+    socials: {
+      linkedin: '#',
+      twitter: '#',
+      instagram: '#'
+    },
+    cv: {
+      education: ['BA in Graphic Design', 'Brand Design Certification'],
+      experience: ['Senior Brand Designer', 'Creative Lead'],
+      skills: ['Brand Identity', 'Graphic Design', 'Visual Systems']
     }
   },
   {
@@ -200,7 +203,7 @@ export default function Team() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 mt-8 md:mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-6 sm:gap-8 mt-8 md:mt-12">
           {team.map((member, index) => (
             <motion.div
               key={index}
