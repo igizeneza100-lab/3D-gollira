@@ -255,7 +255,7 @@ export default function Hero() {
         <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-white/20" />
         <a href="tel:+250782750432" className="flex items-center gap-2 hover:text-brand-yellow transition-colors">
           <Phone className="w-4 h-4 md:w-5 md:h-5 text-brand-yellow" />
-          <span>+250 782 750 432 / +250 788 307 952</span>
+          <span>+250783723705 /  +250788352777</span>
         </a>
         <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-white/20" />
         <a href="mailto:info@gorilla3d.rw" className="flex items-center gap-2 hover:text-brand-yellow transition-colors">

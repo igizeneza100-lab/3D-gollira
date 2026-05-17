@@ -67,7 +67,7 @@ export default function Services() {
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 opacity-70"
                 style={{ backgroundImage: `url(${service.image})` }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-charcoal/90 via-dark-charcoal/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-teal/90 via-brand-teal/60 to-transparent" />
               
               <div className="relative h-full p-8 flex flex-col justify-end gap-3 overflow-hidden z-10">
                 <h3 className="text-2xl font-bold font-display leading-tight text-white">
