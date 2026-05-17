@@ -2,17 +2,55 @@ import { useState} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Linkedin, Twitter, Mail, X, FileText, Award, GraduationCap, Instagram } from 'lucide-react';
 
-import earlImg from '../assets/Teams/Earl Daniel Ssekyondwa.jpg';
 import cyusaImg from '../assets/Teams/Cyusa-Benjamin-Profile-Picture.png';
+import latimImg from '../assets/Teams/Latim.png';
+import earlImg from '../assets/Teams/Earl Daniel Ssekyondwa.jpg';
+import munezeroImg from '../assets/Teams/MUNEZERO.jpeg';
+import ronaldImg from '../assets/Teams/Ronald Sabiiti.jpg';
+import uwaseImg from '../assets/Teams/Constantin Uwase.jpg.jpeg';
+import philippeImg from '../assets/Teams/Philippe Nkwakuzi.jpg';
 import brunoImg from '../assets/Teams/Bruno IHIRWE.jpg';
 import bahiziImg from '../assets/Teams/Bahizi-David-Blair-Profile-Picture.png';
+import alainImg from '../assets/Teams/alain niganze.jpg';
 
 const team = [
   {
+    name: 'Cyusa Benjamin',
+    role: 'Founder & Managing Director',
+    image: cyusaImg,
+    bio: 'Visionary leader driving the strategic direction and growth of Gorilla 3D Studio.',
+    socials: {
+      linkedin: '#',
+      twitter: '#',
+      instagram: '#'
+    },
+    cv: {
+      education: ['MBA in Business Administration', 'BA in Management'],
+      experience: ['Founder & CEO', 'Strategic Business Leader'],
+      skills: ['Leadership', 'Strategic Planning', 'Business Development']
+    }
+  },
+  {
+    name: 'Lawrance Latim Wathum',
+    role: 'Creative Design & Visual Communications Specialist',
+    image: latimImg,
+    bio: 'Creating impactful visual identities and communication strategies for diverse brands.',
+    socials: {
+      linkedin: '#',
+      twitter: '#',
+      instagram: '#'
+    },
+    cv: {
+      education: ['BSc in Graphic Design', 'Visual Communications'],
+      experience: ['Creative Director', 'Visual Communications Lead'],
+      skills: ['Adobe Suite', 'Brand Identity', 'Visual Strategy']
+    }
+  },
+  {
     name: 'Earl Daniel Ssekyondwa',
-    role: 'Creative Director',
+    role: 'Senior Multimedia & Production Manager',
     image: earlImg,
-    bio: 'Creative visionary leading the artistic direction and innovative design solutions.',
+    bio: 'Leading multimedia production with expertise in creating compelling visual narratives.',
     socials: {
       linkedin: '#',
       twitter: '#',
@@ -20,30 +58,14 @@ const team = [
     },
     cv: {
       education: ['MA in Digital Arts', 'BA in Creative Design'],
-      experience: ['Senior Art Director', 'Brand Strategist'],
-      skills: ['Creative Direction', 'Brand Identity', 'Visual Storytelling']
-    }
-  },
-  {
-    name: 'CYUSA Benjamin',
-    role: 'Animator/Motion Designer',
-    image: cyusaImg,
-    bio: 'Specialist in bringing static designs to life through fluid animation and motion graphics.',
-    socials: {
-      linkedin: '#',
-      twitter: '#',
-      instagram: '#'
-    },
-    cv: {
-      education: ['BFA in Animation', 'Motion Graphics Certification'],
-      experience: ['VFX Artist', '2D/3D Animator'],
-      skills: ['After Effects', 'Cinema 4D', 'Character Animation']
+      experience: ['Senior Production Manager', 'Multimedia Director'],
+      skills: ['Production Management', 'Multimedia Design', 'Creative Direction']
     }
   },
   {
     name: 'Munezero Emmanuel',
-    role: 'Videographer',
-    image: 'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?q=80&w=1974&auto=format&fit=crop',
+    role: 'Videographer & Video Production Specialist',
+    image: munezeroImg,
     bio: 'Capturing compelling visual stories through high-quality video production.',
     socials: {
       linkedin: '#',
@@ -57,9 +79,25 @@ const team = [
     }
   },
   {
-    name: 'Bruno IHIRWE',
-    role: 'Photographer',
-    image: brunoImg,
+    name: 'Ronald Sabiiti',
+    role: 'Operations & Business Development Manager',
+    image: ronaldImg,
+    bio: 'Driving operational excellence and strategic business growth initiatives.',
+    socials: {
+      linkedin: '#',
+      twitter: '#',
+      instagram: '#'
+    },
+    cv: {
+      education: ['MBA in Operations Management', 'Business Development Certification'],
+      experience: ['Operations Manager', 'Business Development Lead'],
+      skills: ['Operations Management', 'Business Strategy', 'Process Optimization']
+    }
+  },
+  {
+    name: 'UWASE Constantin',
+    role: 'Photographer & Visual Storytelling Specialist',
+    image: uwaseImg,
     bio: 'Professional photographer with an eye for detail and stunning visual composition.',
     socials: {
       linkedin: '#',
@@ -68,47 +106,47 @@ const team = [
     },
     cv: {
       education: ['BA in Photography', 'Visual Arts Diploma'],
-      experience: ['Commercial Photographer', 'Portait Specialist'],
+      experience: ['Commercial Photographer', 'Portrait Specialist'],
       skills: ['Studio Photography', 'Image Processing', 'Visual Composition']
     }
   },
   {
-    name: 'Lawrance Latim Wathum',
-    role: 'Graphic Designer',
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop',
-    bio: 'Creating impactful visual identities and graphic solutions for diverse brands.',
+    name: 'Philippe Nkwakuzi',
+    role: 'Educational Support and Research & Development Consultant',
+    image: philippeImg,
+    bio: 'Expert in educational innovation and research-driven development strategies.',
     socials: {
       linkedin: '#',
       twitter: '#',
       instagram: '#'
     },
     cv: {
-      education: ['BSc in Graphic Design', 'Visual Communications'],
-      experience: ['Freelance Graphic Artist', 'Junior Designer'],
-      skills: ['Adobe Suite', 'Vector Illustration', 'Layout Design']
+      education: ['PhD in Education', 'MA in Research & Development'],
+      experience: ['Education Consultant', 'R&D Specialist'],
+      skills: ['Curriculum Development', 'Research Methodology', 'Educational Innovation']
     }
   },
   {
-    name: 'Ronald Sabiiti',
-    role: 'Editor/Post-production specialist',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1974&auto=format&fit=crop',
-    bio: 'Expert in post-production, weaving together footage into seamless narratives.',
+    name: 'IHIRWE Bruno',
+    role: 'Senior Graphic & Brand Designer',
+    image: brunoImg,
+    bio: 'Crafting distinctive brand identities and visual experiences that resonate.',
     socials: {
       linkedin: '#',
       twitter: '#',
       instagram: '#'
     },
     cv: {
-      education: ['Certificate in Post-Production', 'Film Studies'],
-      experience: ['Senior Video Editor', 'Colorist'],
-      skills: ['DaVinci Resolve', 'Premiere Pro', 'Sound Design']
+      education: ['BA in Graphic Design', 'Brand Design Certification'],
+      experience: ['Senior Brand Designer', 'Creative Lead'],
+      skills: ['Brand Identity', 'Graphic Design', 'Visual Systems']
     }
   },
   {
     name: 'Bahizi David Blair',
-    role: 'Full-stack Developer',
+    role: 'IT Systems & Technology Specialist',
     image: bahiziImg,
-    bio: 'Highly skilled developer bridging the gap between design and functionality.',
+    bio: 'Highly skilled technology specialist bridging design and functionality.',
     socials: {
       linkedin: '#',
       twitter: '#',
@@ -116,8 +154,24 @@ const team = [
     },
     cv: {
       education: ['BSc in Software Engineering', 'Certified Cloud Architect'],
-      experience: ['Lead Developer at Fintech Startup', 'System Architect'],
-      skills: ['React/Next.js', 'Node.js/Python', 'Cloud Infrastructure']
+      experience: ['IT Systems Manager', 'Technology Consultant'],
+      skills: ['System Architecture', 'Cloud Infrastructure', 'IT Management']
+    }
+  },
+  {
+    name: 'Niganze Alain',
+    role: 'Software and Digital Solutions Developer',
+    image: alainImg,
+    bio: 'Building innovative digital solutions with cutting-edge technologies.',
+    socials: {
+      linkedin: '#',
+      twitter: '#',
+      instagram: '#'
+    },
+    cv: {
+      education: ['BSc in Computer Science', 'Full Stack Development Certification'],
+      experience: ['Software Developer', 'Digital Solutions Architect'],
+      skills: ['React/Next.js', 'Node.js/Python', 'Digital Innovation']
     }
   }
 ];
