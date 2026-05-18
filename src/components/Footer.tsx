@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Instagram, Linkedin, Youtube, Facebook } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { services } from '../constants/services';
 
 const XIcon = (props: any) => (
   <img 
@@ -31,12 +32,7 @@ const NAV_COLS = [
   },
   {
     heading: 'Services',
-    links: [
-      { name: 'Animation', path: '/services' },
-      { name: 'Creative Design', path: '/services' },
-      { name: 'Video Production', path: '/services' },
-      { name: 'Branding', path: '/services' },
-    ],
+    links: services.map(s => ({ name: s.name, path: s.href })),
   },
   {
     heading: 'Legal',

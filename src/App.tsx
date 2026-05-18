@@ -13,6 +13,7 @@ import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Project from './pages/Project';
 import ServicesPage from './pages/Services';
+import SingleService from './pages/SingleService';
 import TermsOfService from './pages/TermsOfService';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 
@@ -38,6 +39,7 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/services" element={<ServicesPage />} />
+              <Route path="/services/:id" element={<SingleService />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/projects" element={<Project />} />
               <Route path="/terms" element={<TermsOfService />} />

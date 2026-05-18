@@ -191,7 +191,7 @@ export default function Hero() {
               font-sans
             "
           >
-      We Transform Ideas Into Powerful Visual Experiences
+          We Transform Ideas Into Powerful Visual Experiences
           </motion.div>
 
           {/* CTAs */}

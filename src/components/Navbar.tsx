@@ -3,15 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, Mail, Phone, MapPin, Instagram, Facebook, Linkedin } from 'lucide-react';
 import { cn } from '../lib/utils';
-
-const services = [
-  { name: 'Animation & Motion Graphics', href: '/services' },
-  { name: 'Creative Design & Branding', href: '/services' },
-  { name: 'Video Production & Post', href: '/services' },
-  { name: 'Learning Content & E‑Learning', href: '/services' },
-  { name: 'Web & Digital Solutions', href: '/services' },
-  { name: 'Consultancy & Research', href: '/services' },
-];
+import { services } from '../constants/services';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -73,6 +65,7 @@ export default function Navbar() {
                       key={service.name}
                       to={service.href}
                       className="block px-4 py-2.5 text-sm font-bold capitalize rounded-lg hover:bg-brand-yellow hover:text-dark-charcoal transition-all"
+                      onClick={() => setIsServicesOpen(false)}
                     >
                       {service.name}
                     </Link>

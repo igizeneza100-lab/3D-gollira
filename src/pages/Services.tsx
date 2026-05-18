@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { services } from '../constants/services';
 import gsap from 'gsap';
 import heroVideo from '../assets/Herovideo.mp4';
 import bg3 from '../assets/BG3.png';
@@ -12,6 +13,7 @@ import bg2 from '../assets/BG2.png';
 
 const detailedServices = [
   {
+    id: 'creative-design',
     category: "Creative Design",
     title: 'Creative Design & Branding',
     description: 'Logo systems, corporate branding, and marketing materials that shape memorable identities.',
@@ -22,6 +24,7 @@ const detailedServices = [
     bg: 'bg-brand-teal/10'
   },
   {
+    id: 'animation',
     category: "Animation",
     title: 'Animation & Motion Graphics',
     description: '2D and 3D animation, explainer videos, and motion graphics to communicate with clarity and flair.',
@@ -32,6 +35,7 @@ const detailedServices = [
     bg: 'bg-brand-yellow/10'
   },
   {
+    id: 'production',
     category: "Production",
     title: 'Multimedia Production',
     description: 'Photography, videography, event coverage and post-production for polished visual stories.',
@@ -42,6 +46,7 @@ const detailedServices = [
     bg: 'bg-brand-teal-mid/10'
   },
   {
+    id: 'learning',
     category: "Learning",
     title: 'Educational Content Development',
     description: 'E-learning, instructional design, storyboarding and educational visual content.',
@@ -52,6 +57,7 @@ const detailedServices = [
     bg: 'bg-white/10'
   },
   {
+    id: 'digital',
     category: "Digital",
     title: 'Web & Digital Solutions',
     description: 'Website design, UX, interactive content and platform development.',
@@ -62,6 +68,7 @@ const detailedServices = [
     bg: 'bg-brand-teal/10'
   },
   {
+    id: 'strategy',
     category: "Strategy",
     title: 'Consultancy & Research',
     description: 'Creative strategy, communication consultancy and research support to inform better decisions.',
@@ -140,6 +147,7 @@ export default function ServicesPage() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    
     const ctx = gsap.context(() => {
       gsap.from('.hero-content > *', {
         y: 30,
@@ -258,10 +266,10 @@ export default function ServicesPage() {
                   </ul>
 
                   <button
-                    onClick={() => navigate('/contact')}
+                    onClick={() => navigate(`/services/${services[i].id}`)}
                     className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-dark-charcoal/40 group-hover:text-brand-teal transition-all group/btn"
                   >
-                    Start Project 
+                    View Details 
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-2 transition-transform" />
                   </button>
                 </div>
@@ -276,7 +284,8 @@ export default function ServicesPage() {
         {detailedServices.map((service, index) => (
           <div 
             key={service.title}
-            className="group/section"
+            id={service.id}
+            className="group/section scroll-mt-32"
           >
             <div className="max-w-7xl mx-auto px-6">
               <div 
