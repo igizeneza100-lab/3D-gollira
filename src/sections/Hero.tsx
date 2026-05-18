@@ -142,7 +142,7 @@ export default function Hero() {
               block
             "
           >
-            Gorilla 3D Studio
+            Welcome to
           </motion.span>
 
           {/* Headline */}
@@ -151,7 +151,7 @@ export default function Hero() {
             className="
               font-display font-bold
               text-[clamp(2.5rem,7vw,5rem)]
-              leading-[0.95] tracking-[-0.03em]
+              leading-[0.88] tracking-[-0.03em]
               m-0 p-0
             "
           >
@@ -162,7 +162,7 @@ export default function Hero() {
                 transition={{ duration: 1.4, ease: [0.19, 1, 0.22, 1], delay: 0.2 }}
                 className="block text-white"
               >
-                We Transform Ideas
+                GORILLA 3D
               </motion.span>
             </div>
             <div className="overflow-hidden">
@@ -170,9 +170,9 @@ export default function Hero() {
                 initial={{ y: 100, opacity: 0, skewY: 7 }}
                 animate={{ y: 0, opacity: 1, skewY: 0 }}
                 transition={{ duration: 1.4, ease: [0.19, 1, 0.22, 1], delay: 0.35 }}
-                className="block text-brand-teal"
+                className="block text-brand-yellow"
               >
-                Into Powerful Visual Experiences
+                STUDIO
               </motion.span>
             </div>
           </motion.h1>
@@ -183,7 +183,7 @@ export default function Hero() {
             animate={{ y: 0, opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: 'easeOut', delay: 0.8 }}
             className="
-              max-w-[700px]
+              max-w-[600px]
               text-[clamp(1rem,1.8vw,1.25rem)]
               text-white
               font-bold
@@ -191,7 +191,7 @@ export default function Hero() {
               font-sans
             "
           >
-            At Gorilla 3D Studio, we create high-impact animation, motion graphics, multimedia content, digital experiences, and strategic creative solutions that help organizations, businesses, and brands tell stories that inspire action.
+      We Transform Ideas Into Powerful Visual Experiences
           </motion.div>
 
           {/* CTAs */}
@@ -258,9 +258,9 @@ export default function Hero() {
           <span>+250783723705 /  +250788352777</span>
         </a>
         <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-white/20" />
-        <a href="mailto:info@gorilla3dstudio.com" className="flex items-center gap-2 hover:text-brand-yellow transition-colors">
+        <a href="mailto:info@gorilla3d.rw" className="flex items-center gap-2 hover:text-brand-yellow transition-colors">
           <Mail className="w-4 h-4 md:w-5 md:h-5 text-brand-yellow" />
-          <span>info@gorilla3dstudio.com</span>
+          <span>info@gorilla3d.rw</span>
         </a>
       </motion.div>
     </section>
