@@ -282,8 +282,12 @@ export default function Team() {
                     <a href={selectedMember.socials.linkedin} className="p-2 rounded-full bg-gray-100 hover:bg-brand-teal hover:text-white transition-all">
                       <Linkedin className="w-5 h-5" />
                     </a>
-                    <a href={selectedMember.socials.twitter} className="p-2 rounded-full bg-gray-100 hover:bg-brand-teal hover:text-white transition-all">
-                      <Twitter className="w-5 h-5" />
+                    <a href={selectedMember.socials.twitter} className="p-2 rounded-full bg-gray-100 hover:bg-brand-teal hover:text-white transition-all flex items-center justify-center">
+                      <img 
+                        src="https://img.icons8.com/ios/50/000000/twitterx--v2.png" 
+                        alt="X" 
+                        className="w-5 h-5 transition-all group-hover:invert"
+                      />
                     </a>
                     <a href={selectedMember.socials.instagram} className="p-2 rounded-full bg-gray-100 hover:bg-brand-teal hover:text-white transition-all">
                       <Instagram className="w-5 h-5" />
