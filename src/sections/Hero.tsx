@@ -160,7 +160,7 @@ export default function Hero() {
                 initial={{ y: 100, opacity: 0, skewY: 7 }}
                 animate={{ y: 0, opacity: 1, skewY: 0 }}
                 transition={{ duration: 1.4, ease: [0.19, 1, 0.22, 1], delay: 0.2 }}
-                className="block text-white"
+                className="block text-brand-teal"
               >
                 GORILLA 3D
               </motion.span>
