@@ -12,6 +12,9 @@ import philippeImg from '../assets/Teams/Philippe Nkwakuzi.jpg';
 import brunoImg from '../assets/Teams/Bruno.jpg';
 import bahiziImg from '../assets/Teams/Bahizi-David-Blair-Profile-Picture.png';
 import alainImg from '../assets/Teams/alain niganze.jpg';
+import aishaImg from '../assets/Teams/AishaKabatesi.png';
+import lumbasiImg from '../assets/Teams/Lumbasi Jackline Nake.jpg';
+
 
 const team = [
   // Top row (left -> right): Cyusa, Earl, Ronald, Philippe, Bahizi
@@ -79,6 +82,23 @@ const team = [
       skills: ['Curriculum Development', 'Research Methodology', 'Educational Innovation']
     }
   },
+  //Add the  lumbasi jackiline 
+  {
+    name: 'Lumbasi Jackiline',
+    role: 'Public Relations & Brand Communications Consultant',
+    image: lumbasiImg,
+    bio: 'Expert in shaping brand narratives and managing strategic public relations to enhance corporate identity and market presence.',
+    socials: {
+      linkedin: '#',
+      twitter: '#',
+      instagram: '#'
+    },
+    cv: {
+      education: ['MSc in Research Methods', 'Development Studies'],
+      experience: ['Research Analyst', 'R&D Consultant'],
+      skills: ['Research Design', 'Data Analysis', 'Innovation Management']
+    }
+  },
   {
     name: 'Bahizi David Blair',
     role: 'IT Systems & Technology Specialist',
@@ -93,6 +113,23 @@ const team = [
       education: ['BSc in Software Engineering', 'Certified Cloud Architect'],
       experience: ['IT Systems Manager', 'Technology Consultant'],
       skills: ['System Architecture', 'Cloud Infrastructure', 'IT Management']
+    }
+  },
+
+  {
+    name: 'Aisha Kabatesi',
+    role: 'Social Media & Digital Communications Consultant',
+    image: aishaImg,
+    bio: 'Specializing in social media strategy and digital communication campaigns.',
+    socials: {
+      linkedin: '#',
+      twitter: '#',
+      instagram: '#'
+    },
+    cv: {
+      education: ['BA in Marketing', 'Digital Communications Certification'],
+      experience: ['Project Coordinator', 'Client Relations Manager'],
+      skills: ['Project Management', 'Client Communication', 'Team Coordination']
     }
   },
 
@@ -203,7 +240,7 @@ export default function Team() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-6 sm:gap-8 mt-8 md:mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-8 md:mt-12">
           {team.map((member, index) => (
             <motion.div
               key={index}

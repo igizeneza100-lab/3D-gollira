@@ -1,12 +1,12 @@
 import { motion } from 'motion/react';
 import { Quote } from 'lucide-react';
-import jackieImg from '../assets/testimonials/Jackie-Lumbasi.png';
+import dianeimg from '../assets/testimonials/dianeineza.jpeg';
 import chrisImg from '../assets/testimonials/Ishimwe-Chris.png';
 
 const testimonials = [
   {
-    name: 'Jacky Lumbasi',
-    image: jackieImg,
+    name: 'Daine INEZA',
+    image: dianeimg,
     text: "Gorilla 3D Studio has consistently demonstrated their versatility and expertise through collaborations with clients spanning various sectors such as technology, healthcare, finance, and lifestyle. Their dedication to delivering high-quality work tailored to each client's needs is commendable.",
   },
   {
