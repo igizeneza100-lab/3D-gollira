@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Instagram, Linkedin, Youtube, Facebook } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const XIcon = (props: any) => (
   <img 
@@ -21,19 +22,37 @@ const TikTokIcon = (props: any) => (
 const NAV_COLS = [
   {
     heading: 'Navigate',
-    links: ['Home', 'Services', 'Portfolio', 'Collaborate', 'About'],
+    links: [
+      { name: 'Home', path: '/' },
+      { name: 'Services', path: '/services' },
+      { name: 'Portfolio', path: '/projects' },
+      { name: 'Contact', path: '/contact' },
+    ],
   },
   {
-    heading: 'Learn',
-    links: ['Our Story', 'Blog', 'Careers', 'Press', 'Awards'],
+    heading: 'Services',
+    links: [
+      { name: 'Animation', path: '/services' },
+      { name: 'Creative Design', path: '/services' },
+      { name: 'Video Production', path: '/services' },
+      { name: 'Branding', path: '/services' },
+    ],
   },
   {
-    heading: 'Help',
-    links: ['FAQ', 'Contact Us', 'Accessibility', 'Partnerships', 'Support'],
+    heading: 'Legal',
+    links: [
+      { name: 'Terms of Service', path: '/terms' },
+      { name: 'Privacy Policy', path: '/privacy' },
+    ],
   },
   {
-    heading: 'Gorilla 3D',
-    links: ['Design', 'Consultancy', 'Research', 'Innovation', '3D Studio'],
+    heading: 'Company',
+    links: [
+      { name: 'About Us', path: '/' },
+      { name: 'Our Work', path: '/projects' },
+      { name: 'Careers', path: '#' },
+      { name: 'Contact', path: '/contact' },
+    ],
   },
 ];
 
@@ -75,13 +94,13 @@ export default function Footer() {
                 </h4>
                 <ul className="space-y-3">
                   {col.links.map((link) => (
-                    <li key={link}>
-                      <a
-                     href="#"
+                    <li key={link.name}>
+                      <Link
+                        to={link.path}
                         className="text-[14px] text-white/55 hover:text-white transition-colors duration-150 block"
                       >
-                        {link}
-                      </a>
+                        {link.name}
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -151,7 +170,7 @@ export default function Footer() {
             </div>
 
             <p className="text-xs font-display font-bold italic text-brand-yellow/70 leading-snug max-w-[260px] mt-auto hidden lg:block">
-              "Together, We Build A Better Future"
+              Gorilla 3D Studio — Crafting Experiences. Creating Impact.
             </p>
           </motion.div>
         </div>
@@ -162,15 +181,18 @@ export default function Footer() {
             © {currentYear} Gorilla 3D Studio. All Rights Reserved.
           </p>
           <div className="flex gap-6">
-            {['Terms of Service', 'Privacy Policy', 'Cookie Policy'].map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="text-[13px] text-white/45 hover:text-white transition-colors"
-              >
-                {item}
-              </a>
-            ))}
+            <Link
+              to="/terms"
+              className="text-[13px] text-white/45 hover:text-white transition-colors"
+            >
+              Terms of Service
+            </Link>
+            <Link
+              to="/privacy"
+              className="text-[13px] text-white/45 hover:text-white transition-colors"
+            >
+              Privacy Policy
+            </Link>
           </div>
         </div>
       </div>

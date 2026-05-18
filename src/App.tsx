@@ -13,6 +13,8 @@ import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Project from './pages/Project';
 import ServicesPage from './pages/Services';
+import TermsOfService from './pages/TermsOfService';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 export default function App() {
   const [isLoaded, setIsLoaded] = useState(() => {
@@ -38,6 +40,8 @@ export default function App() {
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/projects" element={<Project />} />
+              <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
               {/* Fallback path */}
               <Route path="*" element={<Home />} />
             </Routes>

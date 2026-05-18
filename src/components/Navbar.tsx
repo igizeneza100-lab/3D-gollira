@@ -5,10 +5,12 @@ import { Menu, X, ChevronDown, Mail, Phone, MapPin, Instagram, Facebook, Linkedi
 import { cn } from '../lib/utils';
 
 const services = [
-  { name: 'Educational Support Activities', href: '/services' },
-  { name: 'Management Consultancy', href: '/services' },
-  { name: 'Specialized Design', href: '/services' },
-  { name: 'Research & Experimental Development', href: '/services' },
+  { name: 'Animation & Motion Graphics', href: '/services' },
+  { name: 'Creative Design & Branding', href: '/services' },
+  { name: 'Video Production & Post', href: '/services' },
+  { name: 'Learning Content & E‑Learning', href: '/services' },
+  { name: 'Web & Digital Solutions', href: '/services' },
+  { name: 'Consultancy & Research', href: '/services' },
 ];
 
 export default function Navbar() {

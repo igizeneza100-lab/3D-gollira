@@ -49,19 +49,29 @@ export default function About() {
                 whileInView={{ opacity: 1 }}
                 className="text-brand-yellow font-bold uppercase tracking-widest text-sm"
               >
-                The Spirit of the Gorilla
+                About Us
               </motion.span>
               <h2 className="text-4xl md:text-6xl font-display font-bold mt-4 leading-tight">
-                STRENGTH, <span className="text-brand-teal">INTELLIGENCE</span>, LEADERSHIP.
+                Who We Are
               </h2>
             </div>
-            
+
             <p className="text-lg text-dark-charcoal/70 leading-relaxed font-serif italic">
-              "In the digital jungle, the Gorilla stands as a guardian of innovation—Combining raw creative power with surgical technical precision."
+              Gorilla 3D Studio is a creative and innovation-driven studio specializing in visual storytelling, digital design, animation, educational content, and multimedia production.
             </p>
 
             <p className="text-base text-dark-charcoal/60 leading-relaxed">
-              Gorilla 3D Studio isn't just a design firm; it's a digital ecosystem. Inspired by the alpha's leadership, we navigate complex challenges in specialized design, management consultancy, and R&D with unwavering strength and protective expertise.
+              We combine creativity, technology, and strategic thinking to transform ideas into engaging experiences that communicate clearly, connect emotionally, and create measurable impact. From development organizations and institutions to businesses and startups, we help clients bring their vision to life through powerful design and digital solutions.
+            </p>
+
+            <h3 className="text-xl font-bold mt-6">Our Mission</h3>
+            <p className="text-base text-dark-charcoal/60 leading-relaxed">
+              To empower organizations, communities, and brands through innovative creative solutions that educate, inspire, and drive meaningful change.
+            </p>
+
+            <h3 className="text-xl font-bold mt-4">Our Vision</h3>
+            <p className="text-base text-dark-charcoal/60 leading-relaxed">
+              To become Africa’s leading creative and digital innovation studio recognized for transforming ideas into impactful visual experiences.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">

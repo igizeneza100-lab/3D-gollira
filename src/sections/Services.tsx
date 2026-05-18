@@ -6,26 +6,26 @@ import bg5 from '../assets/BG5.png';
 
 const services = [
   {
-    title: 'Educational Support Activities',
-    description: 'Empowering institutions with innovative curriculum development, e-learning solutions, and instructional design tailored for the modern age.',
+    title: 'Creative Design & Branding',
+    description: 'Logo systems, visual identity, marketing collateral, and social content that build memorable brands.',
     color: 'from-brand-teal to-brand-teal-dark',
     image: bg2,
   },
   {
-    title: 'Management Consultancy',
-    description: 'Strategic guidance and practical solutions derived from deep research to improve operational performance and organizational effectiveness.',
+    title: 'Animation & Motion Graphics',
+    description: '2D, 3D, explainer videos, animated infographics and motion-driven storytelling for campaigns and learning.',
     color: 'from-brand-yellow to-orange-500',
     image: bg3,
   },
   {
-    title: 'Specialized Design',
-    description: 'Harnessing the power of 3D visualization, VR, and multimedia design to create captivating, immersive experiences that bring ideas to life.',
+    title: 'Multimedia Production',
+    description: 'Photography, videography, event coverage and post-production to craft polished visual narratives.',
     color: 'from-brand-teal-mid to-brand-teal',
     image: bg4,
   },
   {
-    title: 'Research & Development',
-    description: 'Advancing human understanding through innovative research in social sciences and humanities, tackling complex cultural challenges head-on.',
+    title: 'Educational Content Development',
+    description: 'E-learning, instructional design, storyboarding and learning materials that foster real outcomes.',
     color: 'from-white/20 to-white/5',
     image: bg5,
   }
