@@ -1,0 +1,33 @@
+# Gorilla 3D Studio - Robots.txt
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://gorilla3dstudio.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Disallow admin or private directories (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow specific important pages
+Allow: /services
+Allow: /projects
+Allow: /contact
+Allow: /#about
+Allow: /#team
+Allow: /#portfolio
+
+# Allow all assets
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.svg
+Allow: /*.mp4

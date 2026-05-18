@@ -258,9 +258,9 @@ export default function Hero() {
           <span>+250783723705 /  +250788352777</span>
         </a>
         <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-white/20" />
-        <a href="mailto:info@gorilla3d.rw" className="flex items-center gap-2 hover:text-brand-yellow transition-colors">
+        <a href="mailto:info@gorilla3dstudio.com" className="flex items-center gap-2 hover:text-brand-yellow transition-colors">
           <Mail className="w-4 h-4 md:w-5 md:h-5 text-brand-yellow" />
-          <span>info@gorilla3d.rw</span>
+          <span>info@gorilla3dstudio.com</span>
         </a>
       </motion.div>
     </section>
