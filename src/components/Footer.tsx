@@ -71,8 +71,10 @@ export default function Footer() {
     if (!email) return;
 
     setStatus('loading');
+    const API_BASE = window.location.hostname === 'localhost' ? '' : 'https://www.gorilla3dstudio.com';
+
     try {
-      const response = await fetch('/api/newsletter', {
+      const response = await fetch(`${API_BASE}/api/newsletter`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
