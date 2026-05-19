@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import bg3 from '../assets/BG3.png';
 
+
 type ContactFormState = {
   name: string;
   email: string;
@@ -71,12 +72,26 @@ export default function ContactPage() {
     event.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate request so the page has a complete submit UX before backend integration.
-    await new Promise((resolve) => setTimeout(resolve, 800));
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
 
-    setForm(INITIAL_FORM);
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+      if (response.ok) {
+        setForm(INITIAL_FORM);
+        setIsSubmitted(true);
+      } else {
+        console.error('Failed to submit form');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

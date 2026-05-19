@@ -63,7 +63,33 @@ const SOCIALS = [
 
 export default function Footer() {
   const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const currentYear = new Date().getFullYear();
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setStatus('loading');
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setEmail('');
+        setTimeout(() => setStatus('idle'), 3000);
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+    }
+  };
 
   return (
     <footer
@@ -119,12 +145,13 @@ export default function Footer() {
               </p>
 
               {/* Email + Subscribe side-by-side */}
-              <div className="flex gap-2">
+              <form onSubmit={handleSubscribe} className="flex gap-2">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your Email Address"
+                  placeholder={status === 'success' ? "Subscribed!" : "Your Email Address"}
+                  disabled={status === 'loading' || status === 'success'}
                   className="
                     flex-1 min-w-0
                     px-4 py-3
@@ -132,9 +159,12 @@ export default function Footer() {
                     rounded-xl text-sm font-medium
                     placeholder:text-[#0c2b22]/40
                     focus:outline-none border-0
+                    disabled:opacity-70
                   "
                 />
                 <button
+                  type="submit"
+                  disabled={status === 'loading' || status === 'success'}
                   className="
                     shrink-0 px-5 py-3
                     bg-brand-yellow text-dark-charcoal
@@ -142,11 +172,15 @@ export default function Footer() {
                     hover:scale-[1.03] active:scale-[0.97]
                     transition-transform duration-150
                     whitespace-nowrap
+                    disabled:opacity-50
                   "
                 >
-                  Subscribe
+                  {status === 'loading' ? '...' : status === 'success' ? 'Joined' : 'Subscribe'}
                 </button>
-              </div>
+              </form>
+              {status === 'error' && (
+                <p className="text-red-400 text-xs mt-2">Something went wrong. Try again.</p>
+              )}
             </div>
 
             {/* Social Icons */}
