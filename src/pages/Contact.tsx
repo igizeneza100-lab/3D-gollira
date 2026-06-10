@@ -72,7 +72,7 @@ export default function ContactPage() {
     event.preventDefault();
     setIsSubmitting(true);
 
-    const API_BASE = window.location.hostname === 'localhost' ? '' : 'https://www.gorilla3dstudio.com';
+    const API_BASE = import.meta.env.VITE_API_BASE_URL || '';
 
     try {
       const response = await fetch(`${API_BASE}/api/contact`, {
