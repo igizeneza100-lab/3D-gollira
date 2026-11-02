@@ -1,4 +1,4 @@
-import { useState} from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Linkedin, Twitter, Mail, X, FileText, Award, GraduationCap, Instagram } from 'lucide-react';
 
@@ -24,30 +24,30 @@ const team = [
     image: cyusaImg,
     bio: 'Visionary leader driving the strategic direction and growth of Gorilla 3D Studio.',
     socials: {
-      linkedin: '#',
+      linkedin: 'https://www.linkedin.com/in/cyusa-benjamin-ba75a2141/',
       twitter: '#',
       instagram: '#'
     },
     cv: {
-      education: ['MBA in Business Administration', 'BA in Management'],
+      education: ['Uganda Christian University, Bachelor of Fine Arts - BFA, Industrial and Product Design (2015 – 2018)'],
       experience: ['Founder & CEO', 'Strategic Business Leader'],
       skills: ['Leadership', 'Strategic Planning', 'Business Development']
     }
   },
   {
     name: 'Earl Daniel Ssekyondwa',
-    role: 'Senior Multimedia & Production Manager',
+    role: 'Freelance Videographer',
     image: earlImg,
-    bio: 'Leading multimedia production with expertise in creating compelling visual narratives.',
+    bio: 'Leading multimedia production and videography with expertise in creating compelling visual narratives.',
     socials: {
-      linkedin: '#',
+      linkedin: 'https://www.linkedin.com/in/earl-daniel-ssekyondwa-a037ba363/',
       twitter: '#',
       instagram: '#'
     },
     cv: {
       education: ['MA in Digital Arts', 'BA in Creative Design'],
-      experience: ['Senior Production Manager', 'Multimedia Director'],
-      skills: ['Production Management', 'Multimedia Design', 'Creative Direction']
+      experience: ['Freelance Videographer', 'Senior Production Manager', 'Multimedia Director'],
+      skills: ['Videography', 'Production Management', 'Multimedia Design', 'Creative Direction']
     }
   },
   {
@@ -117,23 +117,26 @@ const team = [
   },
 
   {
-    name: 'Aisha Kabatesi',
-    role: 'Social Media & Digital Communications Consultant',
+    name: 'Aisha Kabatesi, MBA',
+    role: 'Business Management Consultant',
     image: aishaImg,
-    bio: 'Specializing in social media strategy and digital communication campaigns.',
+    bio: 'Specializing in business management, project coordination, and strategic marketing.',
     socials: {
-      linkedin: '#',
+      linkedin: 'https://www.linkedin.com/in/aisha-kabatesi-mba-754693220/',
       twitter: '#',
       instagram: '#'
     },
     cv: {
-      education: ['BA in Marketing', 'Digital Communications Certification'],
-      experience: ['Project Coordinator', 'Client Relations Manager'],
-      skills: ['Project Management', 'Client Communication', 'Team Coordination']
+      education: [
+        'Mount Kenya University - MKU, Master of Business Administration - MBA, Marketing (Sep 2022 – Present)',
+        'The Open University, Certified in Project Management (2019, Grade: First class)'
+      ],
+      experience: ['Business Management', 'Project Coordinator', 'Client Relations Manager'],
+      skills: ['Business Management', 'Project Management', 'Marketing Strategy', 'Research Skills']
     }
   },
 
-  // Bottom row (left -> right): Lawrance, Munezero, UWASE, IHIRWE, Niganze
+  // Bottom row (left -> right): Lawrance, Munezero, UWASE, Bruno, Niganze
   {
     name: 'Lawrance Latim Wathum',
     role: 'Creative Design & Visual Communications Specialist',
@@ -170,20 +173,20 @@ const team = [
     name: 'UWASE Constantin',
     role: 'Photographer & Visual Storytelling Specialist',
     image: uwaseImg,
-    bio: 'Professional photographer with an eye for detail and stunning visual composition.',
+    bio: 'Professional visual storyteller and filmmaker with an eye for detail and stunning visual composition.',
     socials: {
-      linkedin: '#',
+      linkedin: 'https://www.linkedin.com/in/uwase-constantin-237963155/',
       twitter: '#',
       instagram: '#'
     },
     cv: {
-      education: ['BA in Photography', 'Visual Arts Diploma'],
-      experience: ['Commercial Photographer', 'Portrait Specialist'],
-      skills: ['Studio Photography', 'Image Processing', 'Visual Composition']
+      education: ["Bachelor's degree, Film making/Film production"],
+      experience: ['Commercial Photographer', 'Film Producer', 'Portrait Specialist'],
+      skills: ['Film Making', 'Film Production', 'Studio Photography', 'Visual Composition']
     }
   },
   {
-    name: 'IHIRWE Bruno',
+    name: 'Bruno Ihirwe',
     role: 'Senior Graphic & Brand Designer',
     image: brunoImg,
     bio: 'Crafting distinctive brand identities and visual experiences that resonate.',
@@ -193,7 +196,7 @@ const team = [
       instagram: '#'
     },
     cv: {
-      education: ['BA in Graphic Design', 'Brand Design Certification'],
+      education: ['University of Kigali, Economics Science and Management'],
       experience: ['Senior Brand Designer', 'Creative Lead'],
       skills: ['Brand Identity', 'Graphic Design', 'Visual Systems']
     }
@@ -204,12 +207,12 @@ const team = [
     image: alainImg,
     bio: 'Building innovative digital solutions with cutting-edge technologies.',
     socials: {
-      linkedin: '#',
+      linkedin: 'https://www.linkedin.com/in/alain-dev/',
       twitter: '#',
       instagram: '#'
     },
     cv: {
-      education: ['BSc in Computer Science', 'Full Stack Development Certification'],
+      education: ['University of Rwanda, Bachelor of Science, Computer Software Engineering'],
       experience: ['Software Developer', 'Digital Solutions Architect'],
       skills: ['React/Next.js', 'Node.js/Python', 'Digital Innovation']
     }
@@ -224,7 +227,7 @@ export default function Team() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-4 md:gap-6">
           <div>
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               className="text-brand-teal font-bold uppercase tracking-widest text-xs sm:text-sm"
@@ -252,8 +255,8 @@ export default function Team() {
               onClick={() => setSelectedMember(member)}
             >
               <div className="relative aspect-[3/4] overflow-hidden rounded-3xl sm:rounded-[40px] shadow-2xl mb-4 sm:mb-6">
-                <img 
-                  src={member.image} 
+                <img
+                  src={member.image}
                   alt={member.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
@@ -262,13 +265,26 @@ export default function Team() {
                     <button className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-brand-yellow text-dark-charcoal flex items-center justify-center hover:scale-110 transition-transform">
                       <FileText className="w-4 h-4" />
                     </button>
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-brand-teal text-white flex items-center justify-center hover:scale-110 transition-transform">
-                      <Linkedin className="w-4 h-4" />
-                    </div>
+                    {member.socials.linkedin && member.socials.linkedin !== '#' ? (
+                      <a
+                        href={member.socials.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-brand-teal text-white flex items-center justify-center hover:scale-110 transition-transform"
+                        title="LinkedIn Profile"
+                      >
+                        <Linkedin className="w-4 h-4" />
+                      </a>
+                    ) : (
+                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-brand-teal text-white flex items-center justify-center hover:scale-110 transition-transform">
+                        <Linkedin className="w-4 h-4" />
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
-              
+
               <div className="text-center">
                 <h3 className="text-xl sm:text-2xl font-display font-bold text-dark-charcoal mb-1">{member.name}</h3>
                 <p className="text-brand-teal font-bold text-xs sm:text-sm uppercase tracking-wider mb-4">{member.role}</p>
@@ -296,7 +312,7 @@ export default function Team() {
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="fixed right-0 top-0 h-full w-full sm:max-w-md bg-white shadow-2xl z-50 overflow-y-auto p-6 sm:p-8"
             >
-              <button 
+              <button
                 onClick={() => setSelectedMember(null)}
                 className="absolute top-6 right-6 p-2 rounded-full hover:bg-gray-100 transition-colors"
               >
@@ -305,8 +321,8 @@ export default function Team() {
 
               <div className="mt-12 space-y-6 sm:space-y-8">
                 <div className="flex flex-col items-center text-center gap-3 sm:gap-4">
-                  <img 
-                    src={selectedMember.image} 
+                  <img
+                    src={selectedMember.image}
                     alt={selectedMember.name}
                     className="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-brand-teal"
                   />
@@ -314,21 +330,49 @@ export default function Team() {
                     <h2 className="text-2xl sm:text-3xl font-display font-bold text-dark-charcoal">{selectedMember.name}</h2>
                     <p className="text-brand-teal font-bold uppercase tracking-wider text-sm">{selectedMember.role}</p>
                   </div>
-                  
+
                   <div className="flex gap-3 sm:gap-4 mt-2">
-                    <a href={selectedMember.socials.linkedin} className="p-2 rounded-full bg-gray-100 hover:bg-brand-teal hover:text-white transition-all">
-                      <Linkedin className="w-5 h-5" />
-                    </a>
-                    <a href={selectedMember.socials.twitter} className="p-2 rounded-full bg-gray-100 hover:bg-brand-teal hover:text-white transition-all flex items-center justify-center">
-                      <img 
-                        src="https://img.icons8.com/ios/50/000000/twitterx--v2.png" 
-                        alt="X" 
-                        className="w-5 h-5 transition-all group-hover:invert"
-                      />
-                    </a>
-                    <a href={selectedMember.socials.instagram} className="p-2 rounded-full bg-gray-100 hover:bg-brand-teal hover:text-white transition-all">
-                      <Instagram className="w-5 h-5" />
-                    </a>
+                    {selectedMember.socials.linkedin && selectedMember.socials.linkedin !== '#' ? (
+                      <a
+                        href={selectedMember.socials.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-full bg-gray-100 hover:bg-brand-teal hover:text-white transition-all"
+                        title="LinkedIn Profile"
+                      >
+                        <Linkedin className="w-5 h-5" />
+                      </a>
+                    ) : (
+                      <span className="p-2 rounded-full bg-gray-100 text-gray-400 cursor-not-allowed" title="LinkedIn Profile not available">
+                        <Linkedin className="w-5 h-5" />
+                      </span>
+                    )}
+                    {selectedMember.socials.twitter && selectedMember.socials.twitter !== '#' ? (
+                      <a
+                        href={selectedMember.socials.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-full bg-gray-100 hover:bg-brand-teal hover:text-white transition-all flex items-center justify-center"
+                        title="Twitter / X Profile"
+                      >
+                        <img
+                          src="https://img.icons8.com/ios/50/000000/twitterx--v2.png"
+                          alt="X"
+                          className="w-5 h-5 transition-all group-hover:invert"
+                        />
+                      </a>
+                    ) : null}
+                    {selectedMember.socials.instagram && selectedMember.socials.instagram !== '#' ? (
+                      <a
+                        href={selectedMember.socials.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-full bg-gray-100 hover:bg-brand-teal hover:text-white transition-all"
+                        title="Instagram Profile"
+                      >
+                        <Instagram className="w-5 h-5" />
+                      </a>
+                    ) : null}
                   </div>
                 </div>
 
