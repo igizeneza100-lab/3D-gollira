@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Linkedin, Twitter, Mail, X, FileText, Award, GraduationCap, Instagram } from 'lucide-react';
+import { Linkedin, Twitter, Mail, X, FileText, Award, GraduationCap, Instagram, Briefcase } from 'lucide-react';
 
 import cyusaImg from '../assets/Teams/cyusa1.jpg';
 import latimImg from '../assets/Teams/Latim.png';
@@ -70,16 +70,33 @@ const team = [
     name: 'Philippe Nkwakuzi',
     role: 'Educational Support and Research & Development Consultant',
     image: philippeImg,
-    bio: 'Expert in educational innovation and research-driven development strategies.',
+    bio: 'Expert in educational innovation, human development, program leadership, and research-driven development strategies.',
     socials: {
-      linkedin: '#',
+      linkedin: 'https://www.linkedin.com/in/philippe-nkwakuzi-119660105/',
       twitter: '#',
       instagram: '#'
     },
     cv: {
-      education: ['PhD in Education', 'MA in Research & Development'],
-      experience: ['Education Consultant', 'R&D Specialist'],
-      skills: ['Curriculum Development', 'Research Methodology', 'Educational Innovation']
+      education: [
+        'African School of Governance - Masters in Public Administration, Human Development (Sep 2025 – May 2027)',
+        'University Canada West - Master of Business Administration, Leadership'
+      ],
+      experience: [
+        'Vice President - Kepler College Alumni Association (Nov 2022 – Present)',
+        'Senior Program Manager - EF (Feb 2026 – Jul 2026)',
+        'Country Manager - NABU GLOBAL INC (Jan 2022 – Jan 2026)',
+        'Project Coordinator - Kepler Alumni Association (Sep 2019 – Nov 2022)',
+        'Senior Programs Associate - NABU GLOBAL INC (Apr 2019 – Dec 2021)',
+        'District Manager - Babylon Health Ltd / Babyl Rwanda (Sep 2017 – Mar 2019)'
+      ],
+      skills: [
+        'Government Relations',
+        'Program Design & Oversight',
+        'Educational Innovation',
+        'Stakeholder Management',
+        'Data-Driven Decision Making',
+        'Human Development'
+      ]
     }
   },
   //Add the  lumbasi jackiline 
@@ -386,6 +403,19 @@ export default function Team() {
                     ))}
                   </ul>
                 </div>
+
+                {selectedMember.cv?.experience && selectedMember.cv.experience.length > 0 && (
+                  <div className="space-y-3 sm:space-y-4">
+                    <h3 className="text-lg sm:text-xl font-bold flex items-center gap-2 border-b pb-2">
+                      <Briefcase className="text-brand-teal w-5 h-5" /> Experience
+                    </h3>
+                    <ul className="space-y-2">
+                      {selectedMember.cv.experience.map((item, i) => (
+                        <li key={i} className="text-dark-charcoal/70 list-disc ml-6">{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 <div className="space-y-3 sm:space-y-4">
                   <h3 className="text-lg sm:text-xl font-bold flex items-center gap-2 border-b pb-2">
